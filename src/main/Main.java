@@ -85,7 +85,7 @@ public class Main {
 //        for (String path : aStar.astar("A", "F")) {
 //            System.out.println(path);
 //        }
-        
+        //Interfaz Esteban Segura Benavides
         PantallaPrincipal pn = new PantallaPrincipal();
         pn.setVisible(true);
     }
