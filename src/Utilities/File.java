@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Utilities;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Arrays;
 
-/**
- *
- * @author mario
- */
 public class File {
+   // Array with the accepted symbols from BabylonMatrix
     static Character[] vgAcceptedSymbols  = {'1', '2', '3', '4', '0', '*'};
+    
     public static String readFile(java.io.File pFile){
         String vReturn = "";
         try {
