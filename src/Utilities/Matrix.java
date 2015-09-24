@@ -10,20 +10,40 @@ import java.io.File;
 import java.io.FileReader;
 
 /**
- *
- * @author mario
+ * This class represents a Matrix
+ * @author Cristian Araya
  */
 public class Matrix {
     
+   /**
+    * Creates a new matrix
+    * @param pRow: Row's number 
+    * @param pColumn: Column's number
+    * @return String [][]
+    * @author Cristian Araya
+    */
     public static String[][] createMatrix(int pRow, int pColumn ) {
         return new String[pRow][pColumn]; 
     }
  
+   /**
+    * Creates the classic Babylon matrix, it has 5 rows and 4 columns.
+    * @param 
+    * @return String [][]
+    * @author Cristian Araya
+    */
     public static String[][] createBabylonMatrix()
     {
         return Matrix.createBabylonMatrix(5,4);
     }
     
+   /**
+    * Assigns the corresponding numbers to Babylon matrix.
+    * @param pRow: Row's number 
+    * @param pColumn: Column's number
+    * @return String [][]
+    * @author Cristian Araya
+    */
     public static String[][] createBabylonMatrix(int pRow, int pColumn ) {
         String mat[][] = createMatrix( pRow, pColumn );
         for(int i = 0; i < pRow; i++) {
@@ -36,7 +56,11 @@ public class Matrix {
         return mat; 
     }
  
- 
+   /**
+    * Prints a matrix
+    * @param mat: Matrix
+    * @author Cristian Araya
+    */
     public static void printMatrix( String mat[][] ) { 
         for(int i = 0; i < mat.length; i++) {
             for(int j = 0; j < mat[i].length; j++) {
@@ -45,7 +69,13 @@ public class Matrix {
             System.out.println( );
         }
     }
-    
+
+    /**
+    * Creates a BabylonMatrix from a given file
+    * @param pFile: txt file with a matrix
+    * @return String [][]
+    * @author Cristian Araya
+    */
     public static String[][] createBabylonMatrix(File pFile)
     {
         String vMatrix[][] = createMatrix(5, 4);

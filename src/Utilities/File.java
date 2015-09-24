@@ -7,6 +7,8 @@ package Utilities;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 /**
@@ -14,7 +16,9 @@ import java.util.Arrays;
  * @author mario
  */
 public class File {
+    // Array with the accepted symbols from BabylonMatrix
     static Character[] vgAcceptedSymbols  = {'1', '2', '3', '4', '0', '*'};
+    
     public static String readFile(java.io.File pFile){
         String vReturn = "";
         try {
@@ -29,6 +33,33 @@ public class File {
             vReturn += (ex.getMessage());
        }
        return vReturn;
+    }
+    
+     public static void downloadFile(java.io.File pFile, String[][] pMatrix) 
+    {
+        FileWriter vFileWriter = null;
+        PrintWriter vPrintWriter = null;
+        try
+        {
+            vFileWriter = new FileWriter(pFile);
+            vPrintWriter = new PrintWriter(vFileWriter);
+            for(int i = 0; i < pMatrix.length; i++) {
+                for(int j = 0; j < pMatrix[i].length; j++) {
+                    vPrintWriter.print(pMatrix[i][j]); 
+                }
+            vPrintWriter.println( );
+        }
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           if (null != vFileWriter)
+              vFileWriter.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
     }
     
     public static String checkFile(java.io.File pFile)
