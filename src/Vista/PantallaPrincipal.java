@@ -14,14 +14,14 @@ import javax.swing.ImageIcon;
 public class PantallaPrincipal extends javax.swing.JFrame {
 
     // Import ImageIcon     
-    ImageIcon pared = new ImageIcon("images/pared.png");
-    ImageIcon no_pared = new ImageIcon("images/no_pared.png");
-    ImageIcon bola_roja = new ImageIcon("images/bola_roja.png");
-    ImageIcon bola_naranja = new ImageIcon("images/bola_naranja.png");
-    ImageIcon bola_azul = new ImageIcon("images/bola_azul.png");
-    ImageIcon bola_amarilla = new ImageIcon("images/bola_amarilla.png");
-    ImageIcon flecha_izq = new ImageIcon("images/flecha_izq.png");
-    ImageIcon flecha_der = new ImageIcon("images/flecha_der.png");
+    ImageIcon pared = new ImageIcon("src/images/pared.png");
+    ImageIcon no_pared = new ImageIcon("src/images/no_pared.png");
+    ImageIcon bola_roja = new ImageIcon("src/images/bola_roja.png");
+    ImageIcon bola_naranja = new ImageIcon("src/images/bola_naranja.png");
+    ImageIcon bola_azul = new ImageIcon("src/images/bola_azul.png");
+    ImageIcon bola_amarilla = new ImageIcon("src/images/bola_amarilla.png");
+    ImageIcon flecha_izq = new ImageIcon("src/images/flecha_izq.png");
+    ImageIcon flecha_der = new ImageIcon("src/images/flecha_der.png");
 
     int[][] Matriz = {{9,9,0,9},{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
     
