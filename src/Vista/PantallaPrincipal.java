@@ -421,237 +421,235 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         System.out.print("\n");
     }
     
-    public void moverDerecha(int posicion)
+    public void moverDerecha(int pPos)
     {
-        int espacio1 = Matriz[posicion][0];
-        int espacio2 = Matriz[posicion][1];
-        int espacio3 = Matriz[posicion][2];
-        int espacio4 = Matriz[posicion][3];
+        int espacio1 = Matriz[pPos][0];
+        int espacio2 = Matriz[pPos][1];
+        int espacio3 = Matriz[pPos][2];
+        int espacio4 = Matriz[pPos][3];
         
-        Matriz[posicion][0] = espacio4;
-        Matriz[posicion][1] = espacio1;
-        Matriz[posicion][2] = espacio2;
-        Matriz[posicion][3] = espacio3;
+        Matriz[pPos][0] = espacio4;
+        Matriz[pPos][1] = espacio1;
+        Matriz[pPos][2] = espacio2;
+        Matriz[pPos][3] = espacio3;
         
-        for(int i = 0; i<4;i++)
+        actualizar_interfaz(pPos);
+        
+    }
+    
+    public void moverIzquierda(int pPos)
     {
-            switch(i)
+        int espacio1 = Matriz[pPos][0];
+        int espacio2 = Matriz[pPos][1];
+        int espacio3 = Matriz[pPos][2];
+        int espacio4 = Matriz[pPos][3];
+        
+        Matriz[pPos][0] = espacio2;
+        Matriz[pPos][1] = espacio3;
+        Matriz[pPos][2] = espacio4;
+        Matriz[pPos][3] = espacio1;
+        
+        actualizar_interfaz(pPos);
+    }
+    
+    public void seleccionar_imagen_columna_1(int pPos,ImageIcon image)
     {
-                case 0:
-                    switch(Matriz[posicion][0])
+        switch(pPos)
         {
             case 0:
-                            switch(posicion)
-                            {
-                                case 0:
-                                    lblA11.setIcon(no_pared);
+                lblA11.setIcon(image);
                 break;
             case 1:
-                                    lblA21.setIcon(no_pared);
+                lblA21.setIcon(image);
                 break;
             case 2:
-                                    lblA31.setIcon(no_pared);
+                lblA31.setIcon(image);
                 break;
             case 3:
-                                    lblA41.setIcon(no_pared);
+                lblA41.setIcon(image);
                 break;
             case 4:
-                                    lblA51.setIcon(no_pared);
+                lblA51.setIcon(image);
                 break;
         }
+    }
+    
+    public void actualizar_interfaz(int pPos)
+    {
+        //For: check the row according position
+        for(int i = 0; i<4;i++)
+        {
+            //Position i in the row
+            switch(i)
+            {
+                case 0:
+                    switch(Matriz[pPos][0])
+                    {
+                        case 0:
+                            seleccionar_imagen_columna_1(pPos, no_pared);
                             break;
                         case 9:
-                            switch(posicion)
-    {
-                case 0:
-                                    lblA11.setIcon(pared);
+                            seleccionar_imagen_columna_1(pPos, pared);
                             break;
                         case 1:
-                                    lblA21.setIcon(pared);
+                            seleccionar_imagen_columna_1(pPos, bola_roja);
                             break;
                         case 2:
-                                    lblA31.setIcon(pared);
+                            seleccionar_imagen_columna_1(pPos, bola_naranja);
                             break;
                         case 3:
-                                    lblA41.setIcon(pared);
+                            seleccionar_imagen_columna_1(pPos, bola_azul);
                             break;
                         case 4:
-                                    lblA51.setIcon(pared);
+                            seleccionar_imagen_columna_1(pPos, bola_amarilla);
                             break;
                     }
+                    
                     break;
+                    
                     case 1:
-                            switch(posicion)
+                        switch(Matriz[pPos][1])
                         {
                             case 0:
-                                    lblA11.setIcon(bola_roja);
+                                seleccionar_imagen_columna_2(pPos, no_pared);
+                                break;
+                            case 9:
+                                seleccionar_imagen_columna_2(pPos, pared);
                                 break;
                             case 1:
-                                    lblA21.setIcon(bola_roja);
+                                seleccionar_imagen_columna_2(pPos, bola_roja);
                                 break;
                             case 2:
-                                    lblA31.setIcon(bola_roja);
+                                seleccionar_imagen_columna_2(pPos, bola_naranja);
                                 break;
                             case 3:
-                                    lblA41.setIcon(bola_roja);
+                                seleccionar_imagen_columna_2(pPos, bola_azul);
                                 break;
                             case 4:
-                                    lblA51.setIcon(bola_roja);
+                                seleccionar_imagen_columna_2(pPos, bola_amarilla);
                                 break;
                         }
+                    
                     break;
+                        
                     case 2:
-                            switch(posicion)
+                        switch(Matriz[pPos][2])
                         {
                              case 0:
-                                    lblA11.setIcon(bola_naranja);
+                                seleccionar_imagen_columna_3(pPos, no_pared);
+                                break;
+                            case 9:
+                                seleccionar_imagen_columna_3(pPos, pared);
                                 break;
                             case 1:
-                                    lblA21.setIcon(bola_naranja);
+                                seleccionar_imagen_columna_3(pPos, bola_roja);
                                 break;
                             case 2:
-                                    lblA31.setIcon(bola_naranja);
+                                seleccionar_imagen_columna_3(pPos, bola_naranja);
                                 break;
                             case 3:
-                                    lblA41.setIcon(bola_naranja);
+                                seleccionar_imagen_columna_3(pPos, bola_azul);
                                 break;
                             case 4:
-                                    lblA51.setIcon(bola_naranja);
+                                seleccionar_imagen_columna_3(pPos, bola_amarilla);
                                 break;
                         }
+                    
                     break;
+                        
+                        
                     case 3:
-                            switch(posicion)
+                        switch(Matriz[pPos][3])
                         {
                              case 0:
-                                    lblA11.setIcon(bola_azul);
+                                    seleccionar_imagen_columna_4(pPos, no_pared);
+                                    break;
+                                case 9:
+                                    seleccionar_imagen_columna_4(pPos, pared);
                                     break;
                                 case 1:
-                                    lblA21.setIcon(bola_azul);
+                                    seleccionar_imagen_columna_4(pPos, bola_roja);
                                     break;
                                 case 2:
-                                    lblA31.setIcon(bola_azul);
+                                    seleccionar_imagen_columna_4(pPos, bola_naranja);
                                     break;
                                 case 3:
-                                    lblA41.setIcon(bola_azul);
+                                    seleccionar_imagen_columna_4(pPos, bola_azul);
                                     break;
                                 case 4:
-                                    lblA51.setIcon(bola_azul);
-                                    break;
-                            }
-                            break;
-                        case 4:
-                            switch(posicion)
-                            {
-                                case 0:
-                                    lblA11.setIcon(bola_amarilla);
-                                    break;
-                                case 1:
-                                    lblA21.setIcon(bola_amarilla);
-                                    break;
-                                case 2:
-                                    lblA31.setIcon(bola_amarilla);
-                                    break;
-                                case 3:
-                                    lblA41.setIcon(bola_amarilla);
-                                    break;
-                                case 4:
-                                    lblA51.setIcon(bola_amarilla);
+                                    seleccionar_imagen_columna_4(pPos, bola_amarilla);
                                     break;
                         }
+                    
                     break;
             }
-    
-                    break;
-                    
-                    case 1:
-                    switch(Matriz[0][1])
-    {
-            case 0:
-                             lblA12.setIcon(no_pared);
-                break;
-                        case 9:
-                            lblA12.setIcon(pared);
-                            break;
-            case 1:
-                            lblA12.setIcon(bola_roja);
-                break;
-            case 2:
-                            lblA12.setIcon(bola_naranja);
-                break;
-            case 3:
-                            lblA12.setIcon(bola_azul);
-                break;
-            case 4:
-                            lblA12.setIcon(bola_amarilla);
-                break;
         }
-    
-                    break;
-                        
-                    case 2:
-                    switch(Matriz[0][2])
-    {
-            case 0:
-                             lblA13.setIcon(no_pared);
-                break;
-                        case 9:
-                            lblA13.setIcon(pared);
-                            break;
-            case 1:
-                            lblA13.setIcon(bola_roja);
-                break;
-            case 2:
-                            lblA13.setIcon(bola_naranja);
-                break;
-            case 3:
-                            lblA13.setIcon(bola_azul);
-                break;
-            case 4:
-                            lblA13.setIcon(bola_amarilla);
-                break;
-        }
-    
-                    break;
-                        
-                        
-                    case 3:
-                    switch(Matriz[0][3])
-    {
-            case 0:
-                             lblA14.setIcon(no_pared);
-                break;
-                        case 9:
-                            lblA14.setIcon(pared);
-                            break;
-            case 1:
-                            lblA14.setIcon(bola_roja);
-                break;
-            case 2:
-                            lblA14.setIcon(bola_naranja);
-                break;
-            case 3:
-                            lblA14.setIcon(bola_azul);
-                break;
-            case 4:
-                            lblA14.setIcon(bola_amarilla);
-                break;
-        }
-                    
-                    break;
     }
-            
-    public void moverIzquierda(int posicion)
+    
+    public void seleccionar_imagen_columna_2(int pPos,ImageIcon image)
     {
-        int espacio1 = Matriz[posicion][0];
-        int espacio2 = Matriz[posicion][1];
-        int espacio3 = Matriz[posicion][2];
-        int espacio4 = Matriz[posicion][3];
-        
-        Matriz[posicion][0] = espacio2;
-        Matriz[posicion][1] = espacio3;
-        Matriz[posicion][2] = espacio4;
-        Matriz[posicion][3] = espacio1;
+        switch(pPos)
+        {
+            case 0:
+                lblA12.setIcon(image);
+                break;
+            case 1:
+                lblA22.setIcon(image);
+                break;
+            case 2:
+                lblA32.setIcon(image);
+                break;
+            case 3:
+                lblA42.setIcon(image);
+                break;
+            case 4:
+                lblA52.setIcon(image);
+                break;
+        }
+    }
+    
+    public void seleccionar_imagen_columna_3(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblA13.setIcon(image);
+                break;
+            case 1:
+                lblA23.setIcon(image);
+                break;
+            case 2:
+                lblA33.setIcon(image);
+                break;
+            case 3:
+                lblA43.setIcon(image);
+                break;
+            case 4:
+                lblA53.setIcon(image);
+                break;
+        }
+    }
+    
+    public void seleccionar_imagen_columna_4(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblA14.setIcon(image);
+                break;
+            case 1:
+                lblA24.setIcon(image);
+                break;
+            case 2:
+                lblA34.setIcon(image);
+                break;
+            case 3:
+                lblA44.setIcon(image);
+                break;
+            case 4:
+                lblA54.setIcon(image);
+                break;
+        }
     }
     /**
      * @param args the command line arguments
@@ -678,6 +676,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
