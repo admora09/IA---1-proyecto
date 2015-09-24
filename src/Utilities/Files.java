@@ -15,7 +15,7 @@ import java.util.Arrays;
  *
  * @author mario
  */
-public class File {
+public class Files {
     // Array with the accepted symbols from BabylonMatrix
     static Character[] vgAcceptedSymbols  = {'1', '2', '3', '4', '0', '*'};
     
@@ -138,7 +138,7 @@ public class File {
                     }
                     if (vSizeFile == 0) 
                     {
-                        if (vWall != 3) {vReturn += ("Error, deben de haber 3 paredes en la primera fila \n");} 
+                        if (vWall != 3) {vReturn += ("Error, tienen que existir 3 paredes en la primera fila \n");} 
                     }
                     vSizeFile += 1;
                    }
@@ -152,12 +152,12 @@ public class File {
     public static String syntacticCheck(int pBall1, int pBall2, int pBall3, int pBall4, int pSpace, int pWall)
     {
         String vReturn = "";
-        if (pBall1 >= 5) {vReturn +=("Error, deben de haber 4 bolitas de tipo 1 \n");}
-        if (pBall2 >= 5) {vReturn +=("Error, deben de haber 4 bolitas de tipo 2  \n");}
-        if (pBall3 >= 5) {vReturn +=("Error, deben de haber 4 bolitas de tipo 3 \n");}
-        if (pBall4 >= 5) {vReturn +=("Error, deben de haber 4 bolitas de tipo 4 \n");}
-        if (pSpace >= 2) {vReturn +=("Error, solo debe de haber 1 espacio en blanco \n");}
-        if (pWall >= 4)  {vReturn +=("Error, solo pueden existir 3 paredes \n");}
+        if (pBall1 >= 5) {vReturn +=("Error, solo se permite 4 bolitas de color rojo (1) \n");}
+        if (pBall2 >= 5) {vReturn +=("Error, solo se permite 4 bolitas de color naranja (2)  \n");}
+        if (pBall3 >= 5) {vReturn +=("Error, solo se permite 4 bolitas de color azul (3) \n");}
+        if (pBall4 >= 5) {vReturn +=("Error, solo se permite 4 bolitas de color amarillo(4) \n");}
+        if (pSpace >= 2) {vReturn +=("Error, solo se permite 1 espacio en blanco \n");}
+        if (pWall >= 4)  {vReturn +=("Error, solo se permite 3 paredes \n");}
         return vReturn;
     }
     

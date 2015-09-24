@@ -5,7 +5,12 @@
  */
 package Vista;
 
+import Utilities.Files;
+import static Utilities.Files.readFile;
+import Utilities.Matrix;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,13 +28,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     ImageIcon flecha_izq = new ImageIcon("src/images/flecha_izq.png");
     ImageIcon flecha_der = new ImageIcon("src/images/flecha_der.png");
 
-    String[][] Matriz = {{"*","*","1","*"},{"1","0","3","4"},{"1","2","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
+    String[][] Matriz = Matrix.createBabylonMatrix();
     
     int spacePosition=findSpace();
    
     public PantallaPrincipal() {
         initComponents();
-        
         
         switch(spacePosition)
             {
@@ -73,21 +77,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     btnAD2.setEnabled(false);
                     btnAD3.setEnabled(false);
                     break;
-
             }
-        
-        
-        
-        
+        refreshMatrix();
+    }
+    
+    public void refreshMatrix()
+    {
         actualizar_interfaz(0, 1);
         actualizar_interfaz(1, 1);
         actualizar_interfaz(2, 1);
         actualizar_interfaz(3, 1);
         actualizar_interfaz(4, 1);
-
-        
     }
-
+    
     public int findSpace()
     {
         for (int i = 0; i < 4; i++) {
@@ -112,6 +114,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
+        jFileChooser2 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -153,10 +157,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnAD2 = new javax.swing.JButton();
         btnAD3 = new javax.swing.JButton();
         btnAD4 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+
+        jFileChooser2.setDialogTitle("Descargar Archivo ...");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Cargar Archivo...");
+        jButton1.setText("Cargar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -273,99 +281,115 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Descargar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Generar Solución");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(106, 106, 106))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAL1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAL2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAL3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAL4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAL5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAD1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAD2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(btnAD3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(btnAD4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAU1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAU2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)
-                                .addComponent(btnAU3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(btnAU4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblA31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblA32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblA33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblA34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(lblA21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblA22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblA23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblA24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(lblA11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblA12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblA13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblA14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAL1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAL2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAL3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAL4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAL5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAR2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAR3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblA51, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                            .addComponent(lblA41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblA42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAD1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblA43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblA44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAD2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addComponent(btnAD3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(btnAD4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnAU1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAU2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(btnAU3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(btnAU4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(lblA31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblA32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblA33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblA34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(lblA21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblA22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblA23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblA24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(lblA11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblA12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblA13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblA14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAR4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblA52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAR2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAR3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblA51, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                    .addComponent(lblA41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblA53, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblA54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAR5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblA42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblA43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblA44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnAR4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblA52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblA53, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblA54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnAR5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(jButton4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -374,7 +398,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAU1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -436,7 +461,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(btnAD2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAD3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAD4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -455,120 +482,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnAR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR1ActionPerformed
-        // TODO add your handling code here:
-        
-        moverDerecha(0);
-        imprimir_resultado();
-        
-       
-        
-        
-        
-    }//GEN-LAST:event_btnAR1ActionPerformed
-
-    private void btnAR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR2ActionPerformed
-        // TODO add your handling code here:
-         moverDerecha(1);
-        imprimir_resultado();
-       
-    }//GEN-LAST:event_btnAR2ActionPerformed
-
-    private void btnAR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR3ActionPerformed
-        // TODO add your handling code here:
-         moverDerecha(2);
-        imprimir_resultado();
-        
-        
-    }//GEN-LAST:event_btnAR3ActionPerformed
-
-    private void btnAR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR4ActionPerformed
-        // TODO add your handling code here:
-         moverDerecha(3);
-        imprimir_resultado();        
-    }//GEN-LAST:event_btnAR4ActionPerformed
-
-    private void btnAR5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR5ActionPerformed
-        // TODO add your handling code here:
-         moverDerecha(4);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAR5ActionPerformed
-
-    private void btnAL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL1ActionPerformed
-        // TODO add your handling code here:
-        moverIzquierda(0);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAL1ActionPerformed
-
-    private void btnAL2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL2ActionPerformed
-        // TODO add your handling code here:
-        moverIzquierda(1);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAL2ActionPerformed
-
-    private void btnAL3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL3ActionPerformed
-        // TODO add your handling code here:
-        moverIzquierda(2);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAL3ActionPerformed
-
-    private void btnAL4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL4ActionPerformed
-        // TODO add your handling code here:
-        moverIzquierda(3);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAL4ActionPerformed
-
-    private void btnAL5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL5ActionPerformed
-        // TODO add your handling code here:
-        moverIzquierda(4);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAL5ActionPerformed
-
-    private void btnAU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU1ActionPerformed
-        // TODO add your handling code here:
-        moverArriba(0);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAU1ActionPerformed
-
-    private void btnAU2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU2ActionPerformed
-        // TODO add your handling code here:
-        moverArriba(1);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAU2ActionPerformed
-
-    private void btnAU3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU3ActionPerformed
-        // TODO add your handling code here:
-        moverArriba(2);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAU3ActionPerformed
-
-    private void btnAU4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU4ActionPerformed
-        // TODO add your handling code here:
-        moverArriba(3);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAU4ActionPerformed
-
-    private void btnAD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD1ActionPerformed
-        // TODO add your handling code here:
-        moverAbajo(0);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAD1ActionPerformed
-
-    private void btnAD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD2ActionPerformed
-        // TODO add your handling code here:
-        moverAbajo(1);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAD2ActionPerformed
-
-    private void btnAD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD3ActionPerformed
-        // TODO add your handling code here:
-        moverAbajo(2);
-        imprimir_resultado();
-    }//GEN-LAST:event_btnAD3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int returnVal = jFileChooser2.showOpenDialog(this);
+        if (returnVal == jFileChooser2.APPROVE_OPTION) {
+            File vFile = jFileChooser2.getSelectedFile();
+            Files.downloadFile(vFile, Matriz);
+            JOptionPane.showMessageDialog(null, "Se ha descargo el archivo:" + vFile.getName() , "Se ha completado" , JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnAD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD4ActionPerformed
         // TODO add your handling code here:
@@ -576,6 +497,127 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         imprimir_resultado();
     }//GEN-LAST:event_btnAD4ActionPerformed
 
+    private void btnAD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD3ActionPerformed
+        // TODO add your handling code here:
+        moverAbajo(2);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAD3ActionPerformed
+
+    private void btnAD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD2ActionPerformed
+        // TODO add your handling code here:
+        moverAbajo(1);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAD2ActionPerformed
+
+    private void btnAD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD1ActionPerformed
+        // TODO add your handling code here:
+        moverAbajo(0);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAD1ActionPerformed
+
+    private void btnAU4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU4ActionPerformed
+        // TODO add your handling code here:
+        moverArriba(3);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAU4ActionPerformed
+
+    private void btnAU3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU3ActionPerformed
+        // TODO add your handling code here:
+        moverArriba(2);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAU3ActionPerformed
+
+    private void btnAU2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU2ActionPerformed
+        // TODO add your handling code here:
+        moverArriba(1);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAU2ActionPerformed
+
+    private void btnAU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU1ActionPerformed
+        // TODO add your handling code here:
+        moverArriba(0);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAU1ActionPerformed
+
+    private void btnAR5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR5ActionPerformed
+        // TODO add your handling code here:
+        moverDerecha(4);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAR5ActionPerformed
+
+    private void btnAR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR4ActionPerformed
+        // TODO add your handling code here:
+        moverDerecha(3);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAR4ActionPerformed
+
+    private void btnAR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR3ActionPerformed
+        // TODO add your handling code here:
+        moverDerecha(2);
+        imprimir_resultado();
+
+    }//GEN-LAST:event_btnAR3ActionPerformed
+
+    private void btnAR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR2ActionPerformed
+        // TODO add your handling code here:
+        moverDerecha(1);
+        imprimir_resultado();
+
+    }//GEN-LAST:event_btnAR2ActionPerformed
+
+    private void btnAR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR1ActionPerformed
+        // TODO add your handling code here:
+        moverDerecha(0);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAR1ActionPerformed
+
+    private void btnAL5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL5ActionPerformed
+        // TODO add your handling code here:
+        moverIzquierda(4);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAL5ActionPerformed
+
+    private void btnAL4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL4ActionPerformed
+        // TODO add your handling code here:
+        moverIzquierda(3);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAL4ActionPerformed
+
+    private void btnAL3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL3ActionPerformed
+        // TODO add your handling code here:
+        moverIzquierda(2);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAL3ActionPerformed
+
+    private void btnAL2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL2ActionPerformed
+        // TODO add your handling code here:
+        moverIzquierda(1);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAL2ActionPerformed
+
+    private void btnAL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL1ActionPerformed
+        // TODO add your handling code here:
+        moverIzquierda(0);
+        imprimir_resultado();
+    }//GEN-LAST:event_btnAL1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int returnVal = jFileChooser1.showOpenDialog(this);
+        if (returnVal == jFileChooser1.APPROVE_OPTION) {
+            File vFile = jFileChooser1.getSelectedFile();
+            String[][] vBabylonMatrix = Matrix.createBabylonMatrix();
+            String errores = (readFile(vFile));
+            if (readFile(vFile).equals("")) {vBabylonMatrix = Matrix.createBabylonMatrix(vFile);}
+            else
+            {
+                JOptionPane.showMessageDialog(null, errores , "Error en el archivo", JOptionPane.ERROR_MESSAGE);
+            }
+            Matriz = vBabylonMatrix;
+            refreshMatrix();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
+    
     public void imprimir_resultado()
     {
         for (int i = 0; i < 5; i++) {
@@ -633,10 +675,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Matriz[1][pPos] = espacio;
             Matriz[2][pPos] = elemento2;
             Matriz[3][pPos] = elemento3;
-            Matriz[4][pPos] = elemento4;
-
-
-            
+            Matriz[4][pPos] = elemento4;      
         }
         else if(Matriz[1][pPos].equals("0"))
         {
@@ -652,13 +691,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Matriz[2][pPos] = espacio;
             Matriz[3][pPos] = elemento3;
             Matriz[4][pPos] = elemento4;
-
-
-            
         }
         else if(Matriz[2][pPos].equals("0"))
         {
-            
             String elemento1 = Matriz[0][pPos];
             String elemento2 = Matriz[1][pPos];
             String espacio = Matriz[2][pPos];
@@ -669,14 +704,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Matriz[1][pPos] = elemento2;
             Matriz[2][pPos] = elemento3;
             Matriz[3][pPos] = espacio;
-            Matriz[4][pPos] = elemento4;
-
-
-            
+            Matriz[4][pPos] = elemento4;   
         }
         else if(Matriz[3][pPos].equals("0"))
         {
-            
             String elemento1 = Matriz[0][pPos];
             String elemento2 = Matriz[1][pPos];
             String elemento3 = Matriz[2][pPos];
@@ -688,9 +719,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Matriz[2][pPos] = elemento3;
             Matriz[3][pPos] = elemento4;
             Matriz[4][pPos] = espacio;
-
-
-            
         }
         actualizar_interfaz(pPos,2);
     }
@@ -700,8 +728,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
        if(Matriz[1][pPos].equals("0")&&!Matriz[0][pPos].equals("*"))
         {
             String elemento1 = Matriz[0][pPos];
-            String espacio = Matriz[1][pPos];
-            
+            String espacio = Matriz[1][pPos];            
             String elemento2 = Matriz[2][pPos];
             String elemento3 = Matriz[3][pPos];
             String elemento4 = Matriz[4][pPos];
@@ -712,12 +739,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Matriz[3][pPos] = elemento3;
             Matriz[4][pPos] = elemento4;
 
-
             actualizar_interfaz(pPos,2);
         }
         else if(Matriz[2][pPos].equals("0"))
-        {
-            
+        {            
             String elemento1 = Matriz[0][pPos];
             String elemento2 = Matriz[1][pPos];
             String espacio = Matriz[2][pPos];
@@ -730,57 +755,46 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Matriz[3][pPos] = elemento3;
             Matriz[4][pPos] = elemento4;
 
-
             actualizar_interfaz(pPos,2);
         }
         
         else if(Matriz[3][pPos].equals("0"))
         {
-            
             String elemento1 = Matriz[0][pPos];
             String elemento2 = Matriz[1][pPos];
             String elemento3 = Matriz[2][pPos];
             String espacio = Matriz[3][pPos];
             String elemento4 = Matriz[4][pPos];
             
-
             Matriz[0][pPos] = elemento1;
             Matriz[1][pPos] = elemento2;
             Matriz[2][pPos] = espacio;
             Matriz[3][pPos] = elemento3;
             Matriz[4][pPos] = elemento4;
             
-
-
             actualizar_interfaz(pPos,2);
         }
        
        else if(Matriz[4][pPos].equals("0"))
         {
-            
             String elemento1 = Matriz[0][pPos];
             String elemento2 = Matriz[1][pPos];
             String elemento3 = Matriz[2][pPos];
             String elemento4 = Matriz[3][pPos];
             String espacio = Matriz[4][pPos];
-            
-
+           
             Matriz[0][pPos] = elemento1;
-            Matriz[1][pPos] = elemento2;
-            
+            Matriz[1][pPos] = elemento2; 
             Matriz[2][pPos] = elemento3;
             Matriz[3][pPos] = espacio;
             Matriz[4][pPos] = elemento4;
             
-
-
             actualizar_interfaz(pPos,2);
         }
     }
     
     public void actualizar_interfaz(int pPos,int pDireccion)
     {
-        
         if(pDireccion==1)
         {   
             //For: check the row according position
@@ -812,7 +826,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 seleccionar_imagen_columna_1(pPos, bola_amarilla);
                                 break;
                         }
-
                         break;
 
                         case 1:
@@ -867,7 +880,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                         break;
 
-
                         case 3:
                             switch(Matriz[pPos][3])
                             {
@@ -892,8 +904,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     break;
                             }
 
-                        break;
-                
+                        break;   
                 }
             }
 
@@ -948,9 +959,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             //For: check the row according position
             for(int i = 0; i<5;i++)
             {
-                
                 //Position i in the row
-                
                 switch(i)
                 {
                     case 0:
@@ -979,8 +988,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 1:
-                                
-                
+                                                
                                 switch(Matriz[1][pPos])
                                 {
                                     case "0":
@@ -1031,7 +1039,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                         break;
 
-
                         case 3:
                             switch(Matriz[3][pPos])
                             {
@@ -1076,12 +1083,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 case "4":
                                     seleccionar_imagen_fila_5(pPos, bola_amarilla);
                                     break;
-                            }
-
-                            
-                                        
+                            }                            
                         break;
-                
                 }
                 //Check the space position
             switch(spacePosition)
@@ -1361,6 +1364,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAU4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFileChooser jFileChooser2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblA11;
     private javax.swing.JLabel lblA12;
