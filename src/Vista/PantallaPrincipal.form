@@ -49,7 +49,7 @@
                   <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="btnAL1" min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="btnAL2" min="-2" pref="43" max="-2" attributes="0"/>
@@ -60,56 +60,57 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblA51" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnAD1" min="-2" pref="43" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblA52" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblA53" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblA54" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnAR5" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="btnAD2" min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="btnAD3" min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="btnAD4" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lblA41" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblA42" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblA43" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblA44" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnAR4" min="-2" pref="43" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lblA31" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnAU1" min="-2" pref="43" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblA32" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblA33" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblA34" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btnAU2" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Component id="btnAU3" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Component id="btnAU4" min="-2" pref="43" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblA21" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblA22" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblA23" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblA24" min="-2" pref="40" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblA11" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblA12" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblA13" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblA14" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lblA31" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblA32" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblA33" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblA34" min="-2" pref="40" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblA21" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblA22" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblA23" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblA24" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblA11" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblA12" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblA13" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblA14" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -118,6 +119,33 @@
                               <Component id="btnAR1" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="btnAR2" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="btnAR3" min="-2" pref="43" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="lblA51" pref="40" max="32767" attributes="0"/>
+                              <Component id="lblA41" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblA42" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblA43" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblA44" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnAR4" min="-2" pref="43" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblA52" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblA53" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblA54" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnAR5" min="-2" pref="43" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -129,27 +157,34 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnAU1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAU2" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAU3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAU4" min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="btnAR5" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="1" attributes="0">
                                                       <Component id="btnAL1" min="-2" pref="32" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="lblA12" alignment="1" max="32767" attributes="0"/>
-                                                          <Component id="lblA11" alignment="1" pref="40" max="32767" attributes="0"/>
-                                                          <Component id="lblA14" alignment="1" pref="40" max="32767" attributes="0"/>
-                                                          <Component id="lblA13" alignment="1" pref="40" max="32767" attributes="0"/>
+                                                          <Component id="lblA11" alignment="1" max="32767" attributes="0"/>
+                                                          <Component id="lblA14" alignment="1" max="32767" attributes="0"/>
+                                                          <Component id="lblA13" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Component id="btnAR1" min="-2" pref="32" max="-2" attributes="0"/>
                                                   </Group>
@@ -196,7 +231,14 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="140" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnAD1" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAD2" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAD3" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAD4" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="71" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -303,6 +345,46 @@
         <Component class="javax.swing.JButton" name="btnAR5">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAR5ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAU1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAU1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAU2">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAU2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAU3">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAU3ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAU4">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAU4ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAD1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAD1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAD2">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAD2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAD3">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAD3ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAD4">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAD4ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
