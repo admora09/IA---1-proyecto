@@ -33,65 +33,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     String[][] InMatriz = Matrix.createBabylonMatrix();
     String[][] OutMatriz = Matrix.createBabylonMatrix();
     
-    int spacePosition=findSpace();
+    int spacePosition;
    
     public PantallaPrincipal() {
         initComponents();
-        
-        switch(spacePosition)
-            {
-                case 0:
-                    btnAU1.setEnabled(true);
-                    btnAU2.setEnabled(false);
-                    btnAU3.setEnabled(false);
-                    btnAU4.setEnabled(false);
-                    btnAD1.setEnabled(true);
-                    btnAD2.setEnabled(false);
-                    btnAD3.setEnabled(false);
-                    btnAD4.setEnabled(false);
-                    break;
-                case 1:
-                    btnAU2.setEnabled(true);
-                    btnAU1.setEnabled(false);
-                    btnAU3.setEnabled(false);
-                    btnAU4.setEnabled(false);
-                    btnAD2.setEnabled(true);
-                    btnAD1.setEnabled(false);
-                    btnAD3.setEnabled(false);
-                    btnAD4.setEnabled(false);
-                    break;
-                case 2:
-                    btnAU3.setEnabled(true);
-                    btnAU1.setEnabled(false);
-                    btnAU2.setEnabled(false);
-                    btnAU4.setEnabled(false);
-                    btnAD3.setEnabled(true);
-                    btnAD1.setEnabled(false);
-                    btnAD2.setEnabled(false);
-                    btnAD4.setEnabled(false);
-                    break;
-                case 3:
-                    btnAU4.setEnabled(true);
-                    btnAU1.setEnabled(false);
-                    btnAU2.setEnabled(false);
-                    btnAU3.setEnabled(false);
-                    btnAD4.setEnabled(true);
-                    btnAD1.setEnabled(false);
-                    btnAD2.setEnabled(false);
-                    btnAD3.setEnabled(false);
-                    break;
-            }
         refreshMatrix();
+        refreshMatrixB();
     }
     
-    public void refreshMatrix()
-    {
-        actualizar_interfaz(0, 1);
-        actualizar_interfaz(1, 1);
-        actualizar_interfaz(2, 1);
-        actualizar_interfaz(3, 1);
-        actualizar_interfaz(4, 1);
-    }
     
     public void actionPerformed(ActionEvent e) {
         int action = Integer.parseInt(e.getActionCommand());
@@ -106,11 +55,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     }
     
-    public int findSpace()
+    public int findSpace(String[][] pMatriz)
     {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if(InMatriz[i][j].equals("0"))
+                if(pMatriz[i][j].equals("0"))
                 {
                     return j;
                 }
@@ -183,14 +132,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblB22 = new javax.swing.JLabel();
         lblB23 = new javax.swing.JLabel();
         lblB24 = new javax.swing.JLabel();
-        lblB31 = new javax.swing.JLabel();
-        lblB32 = new javax.swing.JLabel();
-        lblB33 = new javax.swing.JLabel();
         lblB34 = new javax.swing.JLabel();
-        lblB41 = new javax.swing.JLabel();
-        lblB42 = new javax.swing.JLabel();
-        lblB43 = new javax.swing.JLabel();
+        lblB33 = new javax.swing.JLabel();
+        lblB32 = new javax.swing.JLabel();
+        lblB31 = new javax.swing.JLabel();
         lblB44 = new javax.swing.JLabel();
+        lblB43 = new javax.swing.JLabel();
+        lblB42 = new javax.swing.JLabel();
+        lblB41 = new javax.swing.JLabel();
         lblB51 = new javax.swing.JLabel();
         lblB52 = new javax.swing.JLabel();
         lblB53 = new javax.swing.JLabel();
@@ -587,13 +536,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblB24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblB34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblB33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblB31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblB32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblB31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblB33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblB34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnBU1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -609,16 +558,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     .addComponent(btnBR3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblB44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblB41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblB51, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblB43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblB42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblB41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblB43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblB44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnBR4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -756,18 +705,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                                     .addComponent(btnBR2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(lblB33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lblB34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lblB31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lblB32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblB31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblB34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblB33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(btnBR3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addComponent(btnBL3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblB43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblB44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblB41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblB42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblB41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblB44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblB43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnBR4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(btnBL4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1200,6 +1149,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     public void actualizar_interfaz(int pPos,int pDireccion)
     {
+        spacePosition = findSpace(InMatriz);
         if(pDireccion==1)
         {   
             //For: check the row according position
@@ -1706,6 +1656,539 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 break;
         }
     }
+    
+    
+    ////////////////////////////Matrix 2
+    
+    
+    public void refreshMatrixB(int pPos,int pDireccion)
+    {
+        spacePosition = findSpace(OutMatriz);
+        if(pDireccion==1)
+        {   
+            //For: check the row according position
+            for(int i = 0; i<4;i++)
+            {
+                //Position i in the row
+                switch(i)
+                {
+                    case 0:
+                        switch(OutMatriz[pPos][0])
+                        {
+                            case "0":
+                                selectImgColumn1(pPos, no_pared);
+                                spacePosition=0;
+                                break;
+                            case "*":
+                                selectImgColumn1(pPos, pared);
+                                break;
+                            case "1":
+                                selectImgColumn1(pPos, bola_roja);
+                                break;
+                            case "2":
+                                selectImgColumn1(pPos, bola_naranja);
+                                break;
+                            case "3":
+                                selectImgColumn1(pPos, bola_azul);
+                                break;
+                            case "4":
+                                selectImgColumn1(pPos, bola_amarilla);
+                                break;
+                        }
+                        break;
+
+                        case 1:
+                            switch(OutMatriz[pPos][1])
+                            {
+                                case "0":
+                                    selectImgColumn2(pPos, no_pared);
+                                    spacePosition=1;
+                                    break;
+                                case "*":
+                                    selectImgColumn2(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgColumn2(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgColumn2(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgColumn2(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgColumn2(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;
+
+                        case 2:
+                            switch(OutMatriz[pPos][2])
+                            {
+                                 case "0":
+                                    selectImgColumn3(pPos, no_pared);
+                                    spacePosition=2;
+                                    break;
+                                case "*":
+                                    selectImgColumn3(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgColumn3(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgColumn3(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgColumn3(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgColumn3(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;
+
+                        case 3:
+                            switch(OutMatriz[pPos][3])
+                            {
+                                 case "0":
+                                    selectImgColumn4(pPos, no_pared);
+                                    spacePosition=3;
+                                    break;
+                                case "*":
+                                    selectImgColumn4(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgColumn4(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgColumn4(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgColumn4(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgColumn4(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;   
+                }
+            }
+
+            //Check the space position
+            switch(spacePosition)
+            {
+                case 0:
+                    btnBU1.setEnabled(true);
+                    btnBU2.setEnabled(false);
+                    btnBU3.setEnabled(false);
+                    btnBU4.setEnabled(false);
+                    btnBD1.setEnabled(true);
+                    btnBD2.setEnabled(false);
+                    btnBD3.setEnabled(false);
+                    btnBD4.setEnabled(false);
+                    break;
+                case 1:
+                    btnBU2.setEnabled(true);
+                    btnBU1.setEnabled(false);
+                    btnBU3.setEnabled(false);
+                    btnBU4.setEnabled(false);
+                    btnBD2.setEnabled(true);
+                    btnBD1.setEnabled(false);
+                    btnBD3.setEnabled(false);
+                    btnBD4.setEnabled(false);
+                    break;
+                case 2:
+                    btnBU3.setEnabled(true);
+                    btnBU1.setEnabled(false);
+                    btnBU2.setEnabled(false);
+                    btnBU4.setEnabled(false);
+                    btnBD3.setEnabled(true);
+                    btnBD1.setEnabled(false);
+                    btnBD2.setEnabled(false);
+                    btnBD4.setEnabled(false);
+                    break;
+                case 3:
+                    btnBU4.setEnabled(true);
+                    btnBU1.setEnabled(false);
+                    btnBU2.setEnabled(false);
+                    btnBU3.setEnabled(false);
+                    btnBD4.setEnabled(true);
+                    btnBD1.setEnabled(false);
+                    btnBD2.setEnabled(false);
+                    btnBD3.setEnabled(false);
+                    break;
+
+            }
+        }
+        else if(pDireccion==2)
+        {
+            //For: check the row according position
+            for(int i = 0; i<5;i++)
+            {
+                //Position i in the row
+                switch(i)
+                {
+                    case 0:
+                        switch(OutMatriz[0][pPos])
+                        {
+                            case "0":
+                                selectImgRow1(pPos, no_pared);
+                                break;
+                            case "*":
+                                selectImgRow1(pPos, pared);
+                                break;
+                            case "1":
+                                selectImgRow1(pPos, bola_roja);
+                                break;
+                            case "2":
+                                selectImgRow1(pPos, bola_naranja);
+                                break;
+                            case "3":
+                                selectImgRow1(pPos, bola_azul);
+                                break;
+                            case "4":
+                                selectImgRow1(pPos, bola_amarilla);
+                                break;
+                        }
+
+                        break;
+
+                        case 1:
+                                                
+                                switch(OutMatriz[1][pPos])
+                                {
+                                    case "0":
+                                        selectImgRow2(pPos, no_pared);
+                                        break;
+                                    case "*":
+                                        selectImgRow2(pPos, pared);
+                                        break;
+                                    case "1":
+                                        selectImgRow2(pPos, bola_roja);
+                                        break;
+                                    case "2":
+                                        selectImgRow2(pPos, bola_naranja);
+                                        break;
+                                    case "3":
+                                        selectImgRow2(pPos, bola_azul);
+                                        break;
+                                    case "4":
+                                        selectImgRow2(pPos, bola_amarilla);
+                                        break;
+                            }
+
+                        break;
+
+                        case 2:
+                            switch(OutMatriz[2][pPos])
+                            {
+                                 case "0":
+                                    selectImgRow3(pPos, no_pared);
+                                    break;
+                                case "*":
+                                    selectImgRow3(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgRow3(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgRow3(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgRow3(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgRow3(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;
+
+                        case 3:
+                            switch(OutMatriz[3][pPos])
+                            {
+                                 case "0":
+                                    selectImgRow4(pPos, no_pared);
+                                    
+                                    break;
+                                case "*":
+                                    selectImgRow4(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgRow4(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgRow4(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgRow4(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgRow4(pPos, bola_amarilla);
+                                    break;
+                            }       
+                        case 4:
+                            switch(OutMatriz[4][pPos])
+                            {
+                                 case "0":
+                                    selectImgRow5(pPos, no_pared);
+                                    break;
+                                case "*":
+                                    selectImgRow5(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgRow5(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgRow5(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgRow5(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgRow5(pPos, bola_amarilla);
+                                    break;
+                            }                            
+                        break;
+                }
+                //Check the space position
+            switch(spacePosition)
+            {
+                case 0:
+                    btnBU1.setEnabled(true);
+                    btnBU2.setEnabled(false);
+                    btnBU3.setEnabled(false);
+                    btnBU4.setEnabled(false);
+                    break;
+                case 1:
+                    btnBU2.setEnabled(true);
+                    btnBU1.setEnabled(false);
+                    btnBU3.setEnabled(false);
+                    btnBU4.setEnabled(false);
+                    break;
+                case 2:
+                    btnBU3.setEnabled(true);
+                    btnBU1.setEnabled(false);
+                    btnBU2.setEnabled(false);
+                    btnBU4.setEnabled(false);
+                    break;
+                case 3:
+                    btnBU4.setEnabled(true);
+                    btnBU1.setEnabled(false);
+                    btnBU2.setEnabled(false);
+                    btnBU3.setEnabled(false);
+                    break;
+
+                }
+            }
+        }
+    }
+    
+    public void selectImgColumn1(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB11.setIcon(image);
+                break;
+            case 1:
+                lblB21.setIcon(image);
+                break;
+            case 2:
+                lblB31.setIcon(image);
+                break;
+            case 3:
+                lblB41.setIcon(image);
+                break;
+            case 4:
+                lblB51.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow1(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB11.setIcon(image);
+                break;
+            case 1:
+                lblB12.setIcon(image);
+                break;
+            case 2:
+                lblB13.setIcon(image);
+                break;
+            case 3:
+                lblB14.setIcon(image);
+                break;   
+        }
+    }
+    
+    public void selectImgColumn2(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB12.setIcon(image);
+                break;
+            case 1:
+                lblB22.setIcon(image);
+                break;
+            case 2:
+                lblB32.setIcon(image);
+                break;
+            case 3:
+                lblB42.setIcon(image);
+                break;
+            case 4:
+                lblB52.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow2(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB21.setIcon(image);
+                break;
+            case 1:
+                lblB22.setIcon(image);
+                break;
+            case 2:
+                lblB23.setIcon(image);
+                break;
+            case 3:
+                lblB24.setIcon(image);
+                break; 
+        }
+    }
+    
+    public void selectImgColumn3(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB13.setIcon(image);
+                break;
+            case 1:
+                lblB23.setIcon(image);
+                break;
+            case 2:
+                lblB33.setIcon(image);
+                break;
+            case 3:
+                lblB43.setIcon(image);
+                break;
+            case 4:
+                lblB53.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow3(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB31.setIcon(image);
+                break;
+            case 1:
+                lblB32.setIcon(image);
+                break;
+            case 2:
+                lblB33.setIcon(image);
+                break;
+            case 3:
+                lblB34.setIcon(image);
+                break;
+            
+        }
+    }
+    
+    public void selectImgColumn4(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB14.setIcon(image);
+                break;
+            case 1:
+                lblB24.setIcon(image);
+                break;
+            case 2:
+                lblB34.setIcon(image);
+                break;
+            case 3:
+                lblB44.setIcon(image);
+                break;
+            case 4:
+                lblB54.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow4(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB41.setIcon(image);
+                break;
+            case 1:
+                lblB42.setIcon(image);
+                break;
+            case 2:
+                lblB43.setIcon(image);
+                break;
+            case 3:
+                lblB44.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow5(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblB51.setIcon(image);
+                break;
+            case 1:
+                lblB52.setIcon(image);
+                break;
+            case 2:
+                lblB53.setIcon(image);
+                break;
+            case 3:
+                lblB54.setIcon(image);
+                break;
+        }
+    }
+    
+    public void refreshMatrix()
+    {
+        actualizar_interfaz(0, 1);
+        actualizar_interfaz(1, 1);
+        actualizar_interfaz(2, 1);
+        actualizar_interfaz(3, 1);
+        actualizar_interfaz(4, 1);
+    }
+    
+    public void refreshMatrixB()
+    {
+        refreshMatrixB(0, 1);
+        refreshMatrixB(1, 1);
+        refreshMatrixB(2, 1);
+        refreshMatrixB(3, 1);
+        refreshMatrixB(4, 1);
+    }
+    
     /**
      * @param args the command line arguments
      */

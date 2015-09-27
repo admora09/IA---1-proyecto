@@ -191,13 +191,13 @@
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblB34" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblB33" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="lblB31" min="-2" pref="40" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblB32" min="-2" pref="40" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblB31" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="lblB33" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblB34" min="-2" pref="40" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="btnBU1" min="-2" pref="43" max="-2" attributes="0"/>
@@ -218,17 +218,17 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblB44" max="32767" attributes="0"/>
+                                      <Component id="lblB41" max="32767" attributes="0"/>
                                       <Component id="lblB51" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblB43" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblB42" min="-2" pref="40" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblB41" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="lblB43" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblB44" min="-2" pref="40" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="btnBR4" min="-2" pref="43" max="-2" attributes="0"/>
                                       </Group>
@@ -403,10 +403,10 @@
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="lblB33" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                                      <Component id="lblB34" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                                      <Component id="lblB31" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                                                       <Component id="lblB32" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <Component id="lblB31" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <Component id="lblB34" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <Component id="lblB33" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                                                       <Component id="btnBR3" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -414,10 +414,10 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="lblB43" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="lblB44" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="lblB41" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                                               <Component id="lblB42" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="lblB41" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="lblB44" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="lblB43" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                                               <Component id="btnBR4" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -625,21 +625,21 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblB24">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblB31">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblB32">
+        <Component class="javax.swing.JLabel" name="lblB34">
         </Component>
         <Component class="javax.swing.JLabel" name="lblB33">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblB34">
+        <Component class="javax.swing.JLabel" name="lblB32">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblB41">
+        <Component class="javax.swing.JLabel" name="lblB31">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblB42">
+        <Component class="javax.swing.JLabel" name="lblB44">
         </Component>
         <Component class="javax.swing.JLabel" name="lblB43">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblB44">
+        <Component class="javax.swing.JLabel" name="lblB42">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblB41">
         </Component>
         <Component class="javax.swing.JLabel" name="lblB51">
         </Component>
