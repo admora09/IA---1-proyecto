@@ -20,6 +20,7 @@ import java.util.Set;
 /**
  * http://codereview.stackexchange.com/questions/38376/a-search-algorithm
  * http://www.codeproject.com/Articles/9880/Very-simple-A-algorithm-implementation
+ * test
  */
 public class AStar<T> {
     private final GraphAStar<T> graph;
