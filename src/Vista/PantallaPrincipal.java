@@ -17,6 +17,7 @@ import javax.swing.JButton;
 /**
  *
  * @author Esteban Segura Benavides
+ * 3:29
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
 
