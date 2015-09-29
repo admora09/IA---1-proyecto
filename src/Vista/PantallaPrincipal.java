@@ -33,8 +33,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     ImageIcon flecha_arriba = new ImageIcon("src/images/arriba.png");
     ImageIcon flecha_abajo = new ImageIcon("src/images/abajo.png");
 
-    String[][] InMatrizA = Matrix.createBabylonMatrix();
+    String[][] InMatriz = Matrix.createBabylonMatrix();
     String[][] OutMatriz = Matrix.createBabylonMatrix();
+    
+    String[][] SolutionMatriz = Matrix.createBabylonMatrix();
     
     int spacePosition;
    
@@ -43,6 +45,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
        
         refreshMatrix();
         refreshMatrixB();
+        
+        refreshMatrixSolution();
         
     }
     
@@ -169,6 +173,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnBD3 = new javax.swing.JButton();
         btnBD4 = new javax.swing.JButton();
         btnDescargarB = new javax.swing.JButton();
+        lblC11 = new javax.swing.JLabel();
+        lblC12 = new javax.swing.JLabel();
+        lblC13 = new javax.swing.JLabel();
+        lblC14 = new javax.swing.JLabel();
+        lblC24 = new javax.swing.JLabel();
+        lblC23 = new javax.swing.JLabel();
+        lblC22 = new javax.swing.JLabel();
+        lblC21 = new javax.swing.JLabel();
+        lblC31 = new javax.swing.JLabel();
+        lblC32 = new javax.swing.JLabel();
+        lblC33 = new javax.swing.JLabel();
+        lblC34 = new javax.swing.JLabel();
+        lblC44 = new javax.swing.JLabel();
+        lblC43 = new javax.swing.JLabel();
+        lblC42 = new javax.swing.JLabel();
+        lblC41 = new javax.swing.JLabel();
+        lblC51 = new javax.swing.JLabel();
+        lblC52 = new javax.swing.JLabel();
+        lblC53 = new javax.swing.JLabel();
+        lblC54 = new javax.swing.JLabel();
+        btnCL1 = new javax.swing.JButton();
+        btnCR1 = new javax.swing.JButton();
 
         jFileChooser2.setDialogTitle("Descargar Archivo ...");
 
@@ -420,6 +446,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnCL1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCL1ActionPerformed(evt);
+            }
+        });
+
+        btnCR1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCR1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -499,13 +537,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     .addComponent(btnAD1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnAD2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(14, 14, 14)
-                                        .addComponent(btnAD3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAD4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(lblA52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -513,8 +544,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblA54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnAR5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                                        .addComponent(btnAR5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnAD2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(14, 14, 14)
+                                        .addComponent(btnAD3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAD4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -580,13 +618,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnBR5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnBD1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBD2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)
-                                .addComponent(btnBD3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBD1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBD2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBD3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)
-                                .addComponent(btnBD4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnBD4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -604,9 +642,62 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(53, 53, 53)))
                 .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(289, 289, 289)
+                .addGap(298, 298, 298)
                 .addComponent(jButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCL1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblC21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblC22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblC23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblC24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblC11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblC12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblC13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblC14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblC31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblC42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblC43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblC44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblC32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblC33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblC34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCR1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblC51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblC41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addComponent(lblC52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblC53, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblC54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(222, 222, 222))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -739,26 +830,59 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     .addComponent(btnBL5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBD1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBD2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBD3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBD4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                            .addComponent(btnBD1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBD2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBD3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBD4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(24, 24, 24))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblC12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblC11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblC14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblC13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblC22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblC32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblC31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblC34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblC33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCL1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCR1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblC42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblC52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC51, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblC53, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -768,116 +892,116 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         int returnVal = jFileChooser2.showOpenDialog(this);
         if (returnVal == jFileChooser2.APPROVE_OPTION) {
             File vFile = jFileChooser2.getSelectedFile();
-            Files.downloadFile(vFile, InMatrizA);
+            Files.downloadFile(vFile, InMatriz);
             JOptionPane.showMessageDialog(null, "Se ha descargo el archivo:" + vFile.getName() , "Se ha completado" , JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnDescargarAActionPerformed
 
     private void btnAD4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAD4ActionPerformed
-        moverAbajo(3,InMatrizA,1);
+        moverAbajo(3,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAD4ActionPerformed
 
     private void btnAD3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAD3ActionPerformed
         // TODO add your handling code here:
-        moverAbajo(2,InMatrizA,1);
+        moverAbajo(2,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAD3ActionPerformed
 
     private void btnAD2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAD2ActionPerformed
         // TODO add your handling code here:
-        moverAbajo(1,InMatrizA,1);
+        moverAbajo(1,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAD2ActionPerformed
 
     private void btnAD1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAD1ActionPerformed
         // TODO add your handling code here:
-        moverAbajo(0,InMatrizA,1);
+        moverAbajo(0,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAD1ActionPerformed
 
     private void btnAU4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAU4ActionPerformed
         // TODO add your handling code here:
-        moverArriba(3,InMatrizA,1);
+        moverArriba(3,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAU4ActionPerformed
 
     private void btnAU3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAU3ActionPerformed
         // TODO add your handling code here:
-        moverArriba(2,InMatrizA,1);
+        moverArriba(2,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAU3ActionPerformed
 
     private void btnAU2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAU2ActionPerformed
         // TODO add your handling code here:
-        moverArriba(1,InMatrizA,1);
+        moverArriba(1,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAU2ActionPerformed
 
     private void btnAU1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAU1ActionPerformed
         // TODO add your handling code here:
-        moverArriba(0,InMatrizA,1);
+        moverArriba(0,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAU1ActionPerformed
 
     private void btnAR5ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAR5ActionPerformed
         // TODO add your handling code here:
-        moverDerecha(4,InMatrizA,1);
+        moverDerecha(4,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAR5ActionPerformed
 
     private void btnAR4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAR4ActionPerformed
         // TODO add your handling code here:
-        moverDerecha(3,InMatrizA,1);
+        moverDerecha(3,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAR4ActionPerformed
 
     private void btnAR3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAR3ActionPerformed
         // TODO add your handling code here:
-        moverDerecha(2,InMatrizA,1);
+        moverDerecha(2,InMatriz,1);
         imprimir_resultadoA();
 
     }//GEN-LAST:event_btnAR3ActionPerformed
 
     private void btnAR2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAR2ActionPerformed
         // TODO add your handling code here:
-        moverDerecha(1,InMatrizA,1);
+        moverDerecha(1,InMatriz,1);
         imprimir_resultadoA();
 
     }//GEN-LAST:event_btnAR2ActionPerformed
 
     private void btnAR1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAR1ActionPerformed
         // TODO add your handling code here:
-        moverDerecha(0,InMatrizA,1);
+        moverDerecha(0,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAR1ActionPerformed
 
     private void btnAL5ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAL5ActionPerformed
-        moverIzquierda(4,InMatrizA,1);
+        moverIzquierda(4,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAL5ActionPerformed
 
     private void btnAL4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAL4ActionPerformed
         // TODO add your handling code here:
-        moverIzquierda(3,InMatrizA,1);
+        moverIzquierda(3,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAL4ActionPerformed
 
     private void btnAL3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAL3ActionPerformed
         // TODO add your handling code here:
-        moverIzquierda(2,InMatrizA,1);
+        moverIzquierda(2,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAL3ActionPerformed
 
     private void btnAL2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAL2ActionPerformed
         // TODO add your handling code here:
-        moverIzquierda(1,InMatrizA,1);
+        moverIzquierda(1,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAL2ActionPerformed
 
     private void btnAL1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAL1ActionPerformed
         // TODO add your handling code here:
-        moverIzquierda(0,InMatrizA,1);
+        moverIzquierda(0,InMatriz,1);
         imprimir_resultadoA();
     }//GEN-LAST:event_btnAL1ActionPerformed
 
@@ -892,7 +1016,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, errores , "Error en el archivo", JOptionPane.ERROR_MESSAGE);
             }
-            InMatrizA = vBabylonMatrix;
+            InMatriz = vBabylonMatrix;
             refreshMatrix();
         }
     }//GEN-LAST:event_btnCargarAActionPerformed
@@ -1013,13 +1137,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Se ha descargo el archivo:" + vFile.getName() , "Se ha completado" , JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnDescargarBActionPerformed
+
+    private void btnCL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCL1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCL1ActionPerformed
+
+    private void btnCR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCR1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCR1ActionPerformed
    
     
     public void imprimir_resultadoA()
     {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.print(InMatrizA[i][j]);
+                System.out.print(InMatriz[i][j]);
             }
             System.out.print("\n");        
         }
@@ -1226,7 +1358,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public void actualizar_interfazA(int pPos,int pDireccion)
     {
         
-        spacePosition = findSpace(InMatrizA);
+        spacePosition = findSpace(InMatriz);
         if(pDireccion==1)
         {   
             //For: check the row according position
@@ -1236,7 +1368,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 switch(i)
                 {
                     case 0:
-                        switch(InMatrizA[pPos][0])
+                        switch(InMatriz[pPos][0])
                         {
                             case "0":
                                 seleccionar_imagen_columna_1A(pPos, no_pared);
@@ -1261,7 +1393,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 1:
-                            switch(InMatrizA[pPos][1])
+                            switch(InMatriz[pPos][1])
                             {
                                 case "0":
                                     seleccionar_imagen_columna_2A(pPos, no_pared);
@@ -1287,7 +1419,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 2:
-                            switch(InMatrizA[pPos][2])
+                            switch(InMatriz[pPos][2])
                             {
                                  case "0":
                                     seleccionar_imagen_columna_3A(pPos, no_pared);
@@ -1313,7 +1445,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 3:
-                            switch(InMatrizA[pPos][3])
+                            switch(InMatriz[pPos][3])
                             {
                                  case "0":
                                     seleccionar_imagen_columna_4A(pPos, no_pared);
@@ -1395,7 +1527,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 switch(i)
                 {
                     case 0:
-                        switch(InMatrizA[0][pPos])
+                        switch(InMatriz[0][pPos])
                         {
                             case "0":
                                 seleccionar_imagen_fila_1A(pPos, no_pared);
@@ -1421,7 +1553,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                         case 1:
                                                 
-                                switch(InMatrizA[1][pPos])
+                                switch(InMatriz[1][pPos])
                                 {
                                     case "0":
                                         seleccionar_imagen_fila_2A(pPos, no_pared);
@@ -1446,7 +1578,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 2:
-                            switch(InMatrizA[2][pPos])
+                            switch(InMatriz[2][pPos])
                             {
                                  case "0":
                                     seleccionar_imagen_fila_3A(pPos, no_pared);
@@ -1471,7 +1603,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 3:
-                            switch(InMatrizA[3][pPos])
+                            switch(InMatriz[3][pPos])
                             {
                                  case "0":
                                     seleccionar_imagen_fila_4A(pPos, no_pared);
@@ -1494,7 +1626,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     break;
                             }       
                         case 4:
-                            switch(InMatrizA[4][pPos])
+                            switch(InMatriz[4][pPos])
                             {
                                  case "0":
                                     seleccionar_imagen_fila_5A(pPos, no_pared);
@@ -2584,6 +2716,257 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    public void refreshMatrixSolution(int pPos,int pDireccion)
+    {
+        spacePosition = findSpace(SolutionMatriz);
+        if(pDireccion==1)
+        {   
+            //For: check the row according position
+            for(int i = 0; i<4;i++)
+            {
+                //Position i in the row
+                switch(i)
+                {
+                    case 0:
+                        switch(SolutionMatriz[pPos][0])
+                        {
+                            case "0":
+                                selectImgColumn1Solution(pPos, no_pared);
+                                spacePosition=0;
+                                break;
+                            case "*":
+                                selectImgColumn1Solution(pPos, pared);
+                                break;
+                            case "1":
+                                selectImgColumn1Solution(pPos, bola_roja);
+                                break;
+                            case "2":
+                                selectImgColumn1Solution(pPos, bola_naranja);
+                                break;
+                            case "3":
+                                selectImgColumn1Solution(pPos, bola_azul);
+                                break;
+                            case "4":
+                                selectImgColumn1Solution(pPos, bola_amarilla);
+                                break;
+                        }
+                        break;
+
+                        case 1:
+                            switch(SolutionMatriz[pPos][1])
+                            {
+                                case "0":
+                                    selectImgColumn2Solution(pPos, no_pared);
+                                    spacePosition=1;
+                                    break;
+                                case "*":
+                                    selectImgColumn2Solution(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgColumn2Solution(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgColumn2Solution(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgColumn2Solution(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgColumn2Solution(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;
+
+                        case 2:
+                            switch(SolutionMatriz[pPos][2])
+                            {
+                                 case "0":
+                                    selectImgColumn3Solution(pPos, no_pared);
+                                    spacePosition=2;
+                                    break;
+                                case "*":
+                                    selectImgColumn3Solution(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgColumn3Solution(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgColumn3Solution(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgColumn3Solution(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgColumn3Solution(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;
+
+                        case 3:
+                            switch(SolutionMatriz[pPos][3])
+                            {
+                                 case "0":
+                                    selectImgColumn4Solution(pPos, no_pared);
+                                    spacePosition=3;
+                                    break;
+                                case "*":
+                                    selectImgColumn4Solution(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgColumn4Solution(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgColumn4Solution(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgColumn4Solution(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgColumn4Solution(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;   
+                }
+            }
+        }
+        else if(pDireccion==2)
+        {
+            //For: check the row according position
+            for(int i = 0; i<5;i++)
+            {
+                //Position i in the row
+                switch(i)
+                {
+                    case 0:
+                        switch(SolutionMatriz[0][pPos])
+                        {
+                            case "0":
+                                selectImgRow1Solution(pPos, no_pared);
+                                break;
+                            case "*":
+                                selectImgRow1Solution(pPos, pared);
+                                break;
+                            case "1":
+                                selectImgRow1Solution(pPos, bola_roja);
+                                break;
+                            case "2":
+                                selectImgRow1Solution(pPos, bola_naranja);
+                                break;
+                            case "3":
+                                selectImgRow1Solution(pPos, bola_azul);
+                                break;
+                            case "4":
+                                selectImgRow1Solution(pPos, bola_amarilla);
+                                break;
+                        }
+
+                        break;
+
+                        case 1:
+                                                
+                                switch(SolutionMatriz[1][pPos])
+                                {
+                                    case "0":
+                                        selectImgRow2Solution(pPos, no_pared);
+                                        break;
+                                    case "*":
+                                        selectImgRow2Solution(pPos, pared);
+                                        break;
+                                    case "1":
+                                        selectImgRow2Solution(pPos, bola_roja);
+                                        break;
+                                    case "2":
+                                        selectImgRow2Solution(pPos, bola_naranja);
+                                        break;
+                                    case "3":
+                                        selectImgRow2Solution(pPos, bola_azul);
+                                        break;
+                                    case "4":
+                                        selectImgRow2Solution(pPos, bola_amarilla);
+                                        break;
+                            }
+
+                        break;
+
+                        case 2:
+                            switch(SolutionMatriz[2][pPos])
+                            {
+                                 case "0":
+                                    selectImgRow3Solution(pPos, no_pared);
+                                    break;
+                                case "*":
+                                    selectImgRow3Solution(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgRow3Solution(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgRow3Solution(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgRow3Solution(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgRow3Solution(pPos, bola_amarilla);
+                                    break;
+                            }
+
+                        break;
+
+                        case 3:
+                            switch(SolutionMatriz[3][pPos])
+                            {
+                                 case "0":
+                                    selectImgRow4Solution(pPos, no_pared);
+                                    
+                                    break;
+                                case "*":
+                                    selectImgRow4Solution(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgRow4Solution(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgRow4Solution(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgRow4Solution(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgRow4Solution(pPos, bola_amarilla);
+                                    break;
+                            }       
+                        case 4:
+                            switch(SolutionMatriz[4][pPos])
+                            {
+                                 case "0":
+                                    selectImgRow5Solution(pPos, no_pared);
+                                    break;
+                                case "*":
+                                    selectImgRow5Solution(pPos, pared);
+                                    break;
+                                case "1":
+                                    selectImgRow5Solution(pPos, bola_roja);
+                                    break;
+                                case "2":
+                                    selectImgRow5Solution(pPos, bola_naranja);
+                                    break;
+                                case "3":
+                                    selectImgRow5Solution(pPos, bola_azul);
+                                    break;
+                                case "4":
+                                    selectImgRow5Solution(pPos, bola_amarilla);
+                                    break;
+                            }                            
+                        break;
+                }
+                //Check the space position
+            }
+        }
+    }
     public void selectImgColumn1(int pPos,ImageIcon image)
     {
         switch(pPos)
@@ -2768,6 +3151,192 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    //******************************************************************************
+    public void selectImgColumn1Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC11.setIcon(image);
+                break;
+            case 1:
+                lblC21.setIcon(image);
+                break;
+            case 2:
+                lblC31.setIcon(image);
+                break;
+            case 3:
+                lblC41.setIcon(image);
+                break;
+            case 4:
+                lblC51.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow1Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC11.setIcon(image);
+                break;
+            case 1:
+                lblC12.setIcon(image);
+                break;
+            case 2:
+                lblC13.setIcon(image);
+                break;
+            case 3:
+                lblC14.setIcon(image);
+                break;   
+        }
+    }
+    
+    public void selectImgColumn2Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC12.setIcon(image);
+                break;
+            case 1:
+                lblC22.setIcon(image);
+                break;
+            case 2:
+                lblC32.setIcon(image);
+                break;
+            case 3:
+                lblC42.setIcon(image);
+                break;
+            case 4:
+                lblC52.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow2Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC21.setIcon(image);
+                break;
+            case 1:
+                lblC22.setIcon(image);
+                break;
+            case 2:
+                lblC23.setIcon(image);
+                break;
+            case 3:
+                lblC24.setIcon(image);
+                break; 
+        }
+    }
+    
+    public void selectImgColumn3Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC13.setIcon(image);
+                break;
+            case 1:
+                lblC23.setIcon(image);
+                break;
+            case 2:
+                lblC33.setIcon(image);
+                break;
+            case 3:
+                lblC43.setIcon(image);
+                break;
+            case 4:
+                lblC53.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow3Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC31.setIcon(image);
+                break;
+            case 1:
+                lblC32.setIcon(image);
+                break;
+            case 2:
+                lblC33.setIcon(image);
+                break;
+            case 3:
+                lblC34.setIcon(image);
+                break;
+            
+        }
+    }
+    
+    public void selectImgColumn4Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC14.setIcon(image);
+                break;
+            case 1:
+                lblC24.setIcon(image);
+                break;
+            case 2:
+                lblC34.setIcon(image);
+                break;
+            case 3:
+                lblC44.setIcon(image);
+                break;
+            case 4:
+                lblC54.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow4Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC41.setIcon(image);
+                break;
+            case 1:
+                lblC42.setIcon(image);
+                break;
+            case 2:
+                lblC43.setIcon(image);
+                break;
+            case 3:
+                lblC44.setIcon(image);
+                break;
+        }
+    }
+    
+    public void selectImgRow5Solution(int pPos,ImageIcon image)
+    {
+        switch(pPos)
+        {
+            case 0:
+                lblC51.setIcon(image);
+                break;
+            case 1:
+                lblC52.setIcon(image);
+                break;
+            case 2:
+                lblC53.setIcon(image);
+                break;
+            case 3:
+                lblC54.setIcon(image);
+                break;
+        }
+    }
+    //******************************************************************************
+    
     public void refreshMatrix()
     {
         btnAL1.setIcon(flecha_izquierda);
@@ -2868,6 +3437,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         refreshMatrixB(4, 1);
     }
     
+    public void refreshMatrixSolution()
+    {
+        btnCL1.setIcon(flecha_izquierda);
+        btnCR1.setIcon(flecha_derecha);
+        
+        refreshMatrixSolution(0, 1);
+        refreshMatrixSolution(1, 1);
+        refreshMatrixSolution(2, 1);
+        refreshMatrixSolution(3, 1);
+        refreshMatrixSolution(4, 1);
+    }
     /**
      * @param args the command line arguments
      */
@@ -2943,6 +3523,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnBU2;
     private javax.swing.JButton btnBU3;
     private javax.swing.JButton btnBU4;
+    private javax.swing.JButton btnCL1;
+    private javax.swing.JButton btnCR1;
     private javax.swing.JButton btnCargarA;
     private javax.swing.JButton btnCargarB;
     private javax.swing.JButton btnDescargarA;
@@ -2991,5 +3573,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblB52;
     private javax.swing.JLabel lblB53;
     private javax.swing.JLabel lblB54;
+    private javax.swing.JLabel lblC11;
+    private javax.swing.JLabel lblC12;
+    private javax.swing.JLabel lblC13;
+    private javax.swing.JLabel lblC14;
+    private javax.swing.JLabel lblC21;
+    private javax.swing.JLabel lblC22;
+    private javax.swing.JLabel lblC23;
+    private javax.swing.JLabel lblC24;
+    private javax.swing.JLabel lblC31;
+    private javax.swing.JLabel lblC32;
+    private javax.swing.JLabel lblC33;
+    private javax.swing.JLabel lblC34;
+    private javax.swing.JLabel lblC41;
+    private javax.swing.JLabel lblC42;
+    private javax.swing.JLabel lblC43;
+    private javax.swing.JLabel lblC44;
+    private javax.swing.JLabel lblC51;
+    private javax.swing.JLabel lblC52;
+    private javax.swing.JLabel lblC53;
+    private javax.swing.JLabel lblC54;
     // End of variables declaration//GEN-END:variables
 }
