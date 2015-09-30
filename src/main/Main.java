@@ -87,6 +87,8 @@ public class Main {
 //        }
         //Interfaz Esteban Segura BenavidesAAAA
         PantallaPrincipal pn = new PantallaPrincipal();
+        pn.setSize(855, 480);
+        pn.setResizable(false);
         pn.setVisible(true);
     }
 }
