@@ -6,9 +6,11 @@
 package Utilities;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -33,6 +35,39 @@ public class Files {
             vReturn += (ex.getMessage());
        }
        return vReturn;
+    }
+    
+    public static void downloadFile(File pFile, ArrayList<String[][]> pMatrix)
+    {
+        FileWriter vFileWriter = null;
+        PrintWriter vPrintWriter = null;
+        try
+        {
+            vFileWriter = new FileWriter(pFile);
+            vPrintWriter = new PrintWriter(vFileWriter);
+            for(int a = 0; a < pMatrix.size(); a++) {
+                vPrintWriter.println("Paso " + (a+1) +":"); 
+                for(int i = 0; i < pMatrix.get(a).length; i++) {
+                    for(int j = 0; j < pMatrix.get(a)[i].length; j++) {
+                        vPrintWriter.print(pMatrix.get(a)[i][j]); 
+                    }
+                    vPrintWriter.println();
+                }
+                vPrintWriter.println();
+            }
+            vPrintWriter.println();
+        }
+                    
+         catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           if (null != vFileWriter)
+              vFileWriter.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
     }
     
      public static void downloadFile(java.io.File pFile, String[][] pMatrix) 
