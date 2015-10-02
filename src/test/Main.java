@@ -132,12 +132,12 @@ public class Main {
         //System.out.println(Heuristic.calcH(so, de, 1));
         System.out.println(Double.MAX_VALUE + 100); 
         
-        NodeData n = new NodeData(so, null, 1);
-        n.calcF(de);
+        NodeData n = new NodeData(new BabMatrix(so), null, 1);
+        n.calcF(new BabMatrix(de));
         System.out.println(n.getF()); 
         
-        NodeData n2 = new NodeData(so1, null, 1);
-        n2.calcF(de);
+        NodeData n2 = new NodeData(new BabMatrix(so1), null, 1);
+        n2.calcF(new BabMatrix(de));
         System.out.println(n2.getF()); 
     }
 }

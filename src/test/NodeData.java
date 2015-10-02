@@ -6,20 +6,19 @@
 package test;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 final public class NodeData { 
 
-    private final List<List<String>> nodeId;
+    private final BabMatrix nodeId;
     private final NodeData nodeParent;
-    private final Map<List<List<String>>, Double> heuristic;
+    private final Map<BabMatrix, Double> heuristic;
 
     private double g;  // g is distance from the source
     private double h;  // h is the heuristic of destination.
     private double f;  // f = g + h 
     
-    public NodeData (List<List<String>> nodeId, NodeData nodeParent, double distance) {
+    public NodeData (BabMatrix nodeId, NodeData nodeParent, double distance) {
         this.nodeId = nodeId;
         this.nodeParent = nodeParent;
         this.g = distance;
@@ -27,7 +26,7 @@ final public class NodeData {
         this.heuristic = new HashMap<>();
     }
     
-    public NodeData (List<List<String>> nodeId, Map<List<List<String>>, Double> heuristic) {
+    public NodeData (BabMatrix nodeId, Map<BabMatrix, Double> heuristic) {
         this.nodeId = nodeId;
         this.g = Double.MAX_VALUE; 
         this.heuristic = heuristic;
@@ -35,7 +34,7 @@ final public class NodeData {
         this.nodeParent = null;
     }
 
-    public List<List<String>> getNodeId() {
+    public BabMatrix getNodeId() {
         return nodeId;
     }
 
@@ -47,8 +46,8 @@ final public class NodeData {
         this.g = g;
     }
     
-    public void calcF(List<List<String>> nodeDest){
-        this.h = Heuristic.calcH((List<List<String>>) nodeId, (List<List<String>>) nodeDest);
+    public void calcF(BabMatrix nodeDest){
+        this.h = Heuristic.calcH((BabMatrix) nodeId, (BabMatrix) nodeDest);
         this.f = this.h + this.g;
     }
 

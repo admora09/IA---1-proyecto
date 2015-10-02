@@ -8,36 +8,28 @@ package test;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-/**
- * The graph represents an undirected graph. 
- * 
- * @author SERVICE-NOW\ameya.patil
- *
- * @param <List<List<String>>>
- */
-final public class GraphAStar implements Iterable<List<List<String>>> {
+final public class GraphAStar implements Iterable<BabMatrix> {
     /*
      * A map from the nodeId to outgoing edge.
      * An outgoing edge is represented as a tuple of NodeData and the edge length
      */
-    private final Map<List<List<String>>, Map<NodeData, Double>> graph;
+    private final Map<BabMatrix, Map<NodeData, Double>> graph;
     /*
      * A map of heuristic from a node to each other node in the graph.
      */
-    private final Map<List<List<String>>, Map<List<List<String>>, Double>> heuristicMap;
+    private final Map<BabMatrix, Map<BabMatrix, Double>> heuristicMap;
     /*
      * A map between nodeId and nodedata.
      */
-    private final Map<List<List<String>>, NodeData> nodeIdNodeData;
+    private final Map<BabMatrix, NodeData> nodeIdNodeData;
 
-    public GraphAStar(Map<List<List<String>>, Map<List<List<String>>, Double>> heuristicMap) {
+    public GraphAStar(Map<BabMatrix, Map<BabMatrix, Double>> heuristicMap) {
         if (heuristicMap == null) throw new NullPointerException("The huerisic map should not be null");
-        graph = new HashMap<List<List<String>>, Map<NodeData, Double>>();
-        nodeIdNodeData = new HashMap<List<List<String>>, NodeData>();
+        graph = new HashMap<>();
+        nodeIdNodeData = new HashMap<>();
         this.heuristicMap = heuristicMap;
     } 
 
@@ -47,11 +39,11 @@ final public class GraphAStar implements Iterable<List<List<String>>> {
      * 
      * @param nodeId the node to be added
      */
-    public void addNode(List<List<String>> nodeId) {
+    public void addNode(BabMatrix nodeId) {
         if (nodeId == null) throw new NullPointerException("The node cannot be null");
         if (!heuristicMap.containsKey(nodeId)) throw new NoSuchElementException("This node is not a part of hueristic map");
 
-        graph.put(nodeId, new HashMap<NodeData, Double>());
+        graph.put(nodeId, new HashMap<>());
         nodeIdNodeData.put(nodeId, new NodeData(nodeId, heuristicMap.get(nodeId)));
     }
 
@@ -64,7 +56,7 @@ final public class GraphAStar implements Iterable<List<List<String>>> {
      * @param nodeIdSecond  the second node to be second node in the edge
      * @param length        the length of the edge.
      */
-    public void addEdge(List<List<String>> nodeIdFirst, List<List<String>> nodeIdSecond, double length) {
+    public void addEdge(BabMatrix nodeIdFirst, BabMatrix nodeIdSecond, double length) {
         if (nodeIdFirst == null || nodeIdSecond == null) throw new NullPointerException("The first nor second node can be null.");
 
         if (!heuristicMap.containsKey(nodeIdFirst) || !heuristicMap.containsKey(nodeIdSecond)) {
@@ -84,7 +76,7 @@ final public class GraphAStar implements Iterable<List<List<String>>> {
      * @param nodeId    the nodeId whose outgoing edge needs to be returned
      * @return          An immutable view of edges leaving that node
      */
-    public Map<NodeData, Double> edgesFrom (List<List<String>> nodeId) {
+    public Map<NodeData, Double> edgesFrom (BabMatrix nodeId) {
         if (nodeId == null) throw new NullPointerException("The input node should not be null.");
         if (!heuristicMap.containsKey(nodeId)) throw new NoSuchElementException("This node is not a part of hueristic map");
         if (!graph.containsKey(nodeId)) throw new NoSuchElementException("The node should not be null.");
@@ -98,7 +90,7 @@ final public class GraphAStar implements Iterable<List<List<String>>> {
      * @param nodeId    the nodeId to be returned
      * @return          the nodeData from the 
      */ 
-    public NodeData getNodeData (List<List<String>> nodeId) {
+    public NodeData getNodeData (BabMatrix nodeId) {
         if (nodeId == null) { throw new NullPointerException("The nodeid should not be empty"); }
         if (!nodeIdNodeData.containsKey(nodeId))  { throw new NoSuchElementException("The nodeId does not exist"); }
         return nodeIdNodeData.get(nodeId);
@@ -109,7 +101,7 @@ final public class GraphAStar implements Iterable<List<List<String>>> {
      * 
      * @return an Iterator.
      */
-    @Override public Iterator<List<List<String>>> iterator() {
+    @Override public Iterator<BabMatrix> iterator() {
         return graph.keySet().iterator();
     }
 }
