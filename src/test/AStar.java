@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test;
 
 import java.util.ArrayList;
@@ -16,10 +11,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-/**
- *
- * @author adonis
- */
 public class AStar {
     private final GraphAStar graph;
 
@@ -30,6 +21,7 @@ public class AStar {
 
     // extend comparator.
     public class NodeComparator implements Comparator<NodeData> {
+        @Override
         public int compare(NodeData nodeFirst, NodeData nodeSecond) {
             if (nodeFirst.getF() > nodeSecond.getF()) return 1;
             if (nodeSecond.getF() > nodeFirst.getF()) return -1;
@@ -44,19 +36,19 @@ public class AStar {
      * @param destination   the destination nodeid
      * @return              the path from source to destination
      */
-    public List<List<List<String>>> astar(List<List<String>> source, List<List<String>> destination) {
+    public List<BabMatrix> astar(BabMatrix source, BabMatrix destination) {
         /**
          * http://stackoverflow.com/questions/20344041/why-does-priority-queue-has-default-initial-capacity-of-11
          */
-        final Queue<NodeData> openQueue = new PriorityQueue<NodeData>(11, new NodeComparator()); 
+        final Queue<NodeData> openQueue = new PriorityQueue<>(11, new NodeComparator()); 
 
         NodeData sourceNodeData = graph.getNodeData(source);
         sourceNodeData.setG(0);
         sourceNodeData.calcF(destination);
         openQueue.add(sourceNodeData);
 
-        final Map<List<List<String>>, List<List<String>>> path = new HashMap<List<List<String>>, List<List<String>>>();
-        final Set<NodeData> closedList = new HashSet<NodeData>();
+        final Map<BabMatrix, BabMatrix> path = new HashMap<>();
+        final Set<NodeData> closedList = new HashSet<>();
 
         while (!openQueue.isEmpty()) {
             final NodeData nodeData = openQueue.poll();
@@ -91,11 +83,11 @@ public class AStar {
     }
 
 
-    private List<List<List<String>>> path(Map<List<List<String>>, List<List<String>>> path, List<List<String>> destination) {
+    private List<BabMatrix> path(Map<BabMatrix, BabMatrix> path, BabMatrix destination) {
         assert path != null;
         assert destination != null;
 
-        final List<List<List<String>>> pathList = new ArrayList<>();
+        final List<BabMatrix> pathList = new ArrayList<>();
         pathList.add(destination);
         while (path.containsKey(destination)) {
             destination = path.get(destination);
