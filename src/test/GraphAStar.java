@@ -47,14 +47,21 @@ final public class GraphAStar implements Iterable<BabMatrix> {
         nodeIdNodeData.put(nodeId, new NodeData(nodeId, getHeuristicMap(nodeId)));
     }
     
+    private void addNode(BabMatrix nodeId, NodeData parent, double distance){
+        if (nodeId == null) throw new NullPointerException("The node cannot be null");
+
+        graph.put(nodeId, new HashMap<>());
+        nodeIdNodeData.put(nodeId, new NodeData(nodeId, parent, distance));
+    }
+    
     private Map<BabMatrix, Double> getHeuristicMap(BabMatrix matrix){
         Map<BabMatrix, Double> result = new HashMap<>();
         
         List<BabMatrix> states = matrix.generateStates();
         for (BabMatrix state : states){
             double h = Heuristic.calcH(matrix, destination);
-            addNode(state);
-            addEdge(matrix, state, h);
+//            addNode(state);
+//            addEdge(matrix, state, h);
             result.put(state, h);
         }
         
