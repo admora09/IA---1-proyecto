@@ -101,6 +101,15 @@ public class frmInstrucciones extends javax.swing.JFrame {
             case 4:
                 ImageIcon instruccion4 = new ImageIcon("src/images/instruccion4.png");
                 lblInstruccion.setIcon(instruccion4);
+                
+                break;
+            case 5:
+                ImageIcon instruccion5 = new ImageIcon("src/images/instruccion5.png");
+                lblInstruccion.setIcon(instruccion5);
+                break;
+            case 6:
+                ImageIcon instruccion6 = new ImageIcon("src/images/instruccion6.png");
+                lblInstruccion.setIcon(instruccion6);
                 btnSiguiente.setEnabled(false);
                 break;
         }
@@ -126,6 +135,14 @@ public class frmInstrucciones extends javax.swing.JFrame {
                 ImageIcon instruccion3 = new ImageIcon("src/images/instruccion3.png");
                 lblInstruccion.setIcon(instruccion3);
                 
+                break;
+             case 4:
+                ImageIcon instruccion4 = new ImageIcon("src/images/instruccion4.png");
+                lblInstruccion.setIcon(instruccion4);
+                break;
+             case 5:
+                ImageIcon instruccion5 = new ImageIcon("src/images/instruccion5.png");
+                lblInstruccion.setIcon(instruccion5);
                 btnSiguiente.setEnabled(true);
                 break;
         }
