@@ -53,8 +53,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     ImageIcon flecha_arriba = new ImageIcon("src/images/arriba.png");
     ImageIcon flecha_abajo = new ImageIcon("src/images/abajo.png");
     ImageIcon solucion = new ImageIcon("src/images/solution.png");
-    ImageIcon download = new ImageIcon("src/images/download.png");
-    ImageIcon upload = new ImageIcon("src/images/upload.png");
+    ImageIcon download = new ImageIcon("src/images/download2.png");
+    ImageIcon upload = new ImageIcon("src/images/upload2.png");
 
     String[][] InMatriz = Matrix.createBabylonMatrix();
     String[][] OutMatriz = Matrix.createBabylonMatrix();
