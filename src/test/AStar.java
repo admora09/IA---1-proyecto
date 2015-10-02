@@ -12,11 +12,8 @@ import java.util.Queue;
 import java.util.Set;
 
 public class AStar {
-    private final GraphAStar graph;
 
-
-    public AStar (GraphAStar graphAStar) {
-        this.graph = graphAStar;
+    public AStar () {
     }
 
     // extend comparator.
@@ -42,7 +39,7 @@ public class AStar {
          */
         final Queue<NodeData> openQueue = new PriorityQueue<>(11, new NodeComparator()); 
 
-        NodeData sourceNodeData = graph.getNodeData(source);
+        NodeData sourceNodeData = new NodeData(source, null, 0);//graph.getNodeData(source);
         sourceNodeData.setG(0);
         sourceNodeData.calcF(destination);
         openQueue.add(sourceNodeData);
@@ -53,33 +50,52 @@ public class AStar {
         while (!openQueue.isEmpty()) {
             final NodeData nodeData = openQueue.poll();
 
-            if (nodeData.getNodeId().equals(destination)) { 
-                return path(path, destination);
+            if (compare(nodeData.getNodeId(), (destination))) { 
+                return path(nodeData);
             }
 
             closedList.add(nodeData);
+            //nodeData.getNodeId().print();
 
-            for (Map.Entry<NodeData, Double> neighborEntry : graph.edgesFrom(nodeData.getNodeId()).entrySet()) {
-                NodeData neighbor = neighborEntry.getKey();
+            for (BabMatrix neighborEntry : nodeData.getNodeId().generateStates()){//graph.edgesFrom(nodeData.getNodeId()).entrySet()) {
+                Heuristic h = new Heuristic();
+                double distance = nodeData.getG() + 1;// + h.calcH(neighborEntry, nodeData.getNodeId());
+                NodeData neighbor = new NodeData(neighborEntry, nodeData, distance);//neighborEntry.getKey();
+                //neighbor.getNodeId().print();
 
                 if (closedList.contains(neighbor)) continue;
 
-                double distanceBetweenTwoNodes = neighborEntry.getValue();
+                double distanceBetweenTwoNodes = h.calcH(neighborEntry, nodeData.getNodeId());
                 double tentativeG = distanceBetweenTwoNodes + nodeData.getG();
                
+                //System.out.println(nodeData.getG());
+                //System.out.println(tentativeG + " < " + neighbor.getG());
+                
                 if (tentativeG < neighbor.getG()) {
                     neighbor.setG(tentativeG);
                     neighbor.calcF(destination);
 
                     path.put(neighbor.getNodeId(), nodeData.getNodeId());
-                    if (!openQueue.contains(neighbor)) {
+                    //if (!openQueue.contains(neighbor)) {
                         openQueue.add(neighbor);
-                    }
+                        neighbor.getNodeId().print();
+                    //}
                 }
             }
         }
 
         return null;
+    }
+    
+    private boolean compare(BabMatrix source, BabMatrix destination){
+        for(int i=0; i<source.getRows(); i++){
+            for(int j=0; j<source.getColumns(); j++){
+                if(!source.get(i, j).equals(destination.get(i, j))){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
@@ -93,6 +109,22 @@ public class AStar {
             destination = path.get(destination);
             pathList.add(destination);
         }
+        Collections.reverse(pathList);
+        return pathList;
+    }
+    
+    private List<BabMatrix> path( NodeData nodeData ){
+        final List<BabMatrix> pathList = new ArrayList<>();
+        NodeData temp = nodeData;
+        
+        pathList.add(temp.getNodeId());
+        while(true){
+            temp = temp.getNodeParent();
+            if(temp == null)
+                break;
+            pathList.add(temp.getNodeId());
+        }
+        
         Collections.reverse(pathList);
         return pathList;
     }
