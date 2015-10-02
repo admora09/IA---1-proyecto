@@ -42,7 +42,7 @@ public class AStar {
          */
         final Queue<NodeData> openQueue = new PriorityQueue<>(11, new NodeComparator()); 
 
-        NodeData sourceNodeData = graph.getNodeData(source);
+        NodeData sourceNodeData = new NodeData(source, null, 0);//graph.getNodeData(source);
         sourceNodeData.setG(0);
         sourceNodeData.calcF(destination);
         openQueue.add(sourceNodeData);
@@ -58,16 +58,22 @@ public class AStar {
             }
 
             closedList.add(nodeData);
+            //nodeData.getNodeId().print();
 
-            for (Map.Entry<NodeData, Double> neighborEntry : graph.edgesFrom(nodeData.getNodeId()).entrySet()) {
-                NodeData neighbor = neighborEntry.getKey();
+            for (BabMatrix neighborEntry : nodeData.getNodeId().generateStates()){//graph.edgesFrom(nodeData.getNodeId()).entrySet()) {
+                double distance = Heuristic.calcH(neighborEntry, nodeData.getNodeId());
+                NodeData neighbor = new NodeData(neighborEntry, nodeData, distance);//neighborEntry.getKey();
+                neighbor.getNodeId().print();
 
                 if (closedList.contains(neighbor)) continue;
 
-                double distanceBetweenTwoNodes = neighborEntry.getValue();
+                double distanceBetweenTwoNodes = distance;
                 double tentativeG = distanceBetweenTwoNodes + nodeData.getG();
                
-                if (tentativeG < neighbor.getG()) {
+                System.out.println(nodeData.getG());
+                System.out.println(tentativeG + " < " + neighbor.getG());
+                
+                if (tentativeG <= neighbor.getG()) {
                     neighbor.setG(tentativeG);
                     neighbor.calcF(destination);
 
