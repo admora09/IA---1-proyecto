@@ -66,7 +66,7 @@ public class AStar {
 
                 double distanceBetweenTwoNodes = neighborEntry.getValue();
                 double tentativeG = distanceBetweenTwoNodes + nodeData.getG();
-
+               
                 if (tentativeG < neighbor.getG()) {
                     neighbor.setG(tentativeG);
                     neighbor.calcF(destination);
