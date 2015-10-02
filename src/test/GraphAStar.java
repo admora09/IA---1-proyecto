@@ -59,10 +59,10 @@ final public class GraphAStar implements Iterable<BabMatrix> {
         
         List<BabMatrix> states = matrix.generateStates();
         for (BabMatrix state : states){
-            double h = Heuristic.calcH(matrix, destination);
+            //double h = Heuristic.calcH(matrix, destination);
 //            addNode(state);
 //            addEdge(matrix, state, h);
-            result.put(state, h);
+            //result.put(state, h);
         }
         
         return result;

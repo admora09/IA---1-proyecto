@@ -11,7 +11,7 @@ import java.util.Map;
 final public class NodeData { 
 
     private final BabMatrix nodeId;
-    private final NodeData nodeParent;
+    private NodeData nodeParent;
     private final Map<BabMatrix, Double> heuristic;
 
     private double g;  // g is distance from the source
@@ -47,7 +47,8 @@ final public class NodeData {
     }
     
     public void calcF(BabMatrix nodeDest){
-        this.h = Heuristic.calcH((BabMatrix) nodeId, (BabMatrix) nodeDest);
+        Heuristic h = new Heuristic();
+        this.h = h.calcH((BabMatrix) nodeId, (BabMatrix) nodeDest);
         this.f = this.h + this.g;
     }
 
@@ -57,5 +58,19 @@ final public class NodeData {
 
     public double getF() {
         return f;
+    }
+
+    /**
+     * @return the nodeParent
+     */
+    public NodeData getNodeParent() {
+        return nodeParent;
+    }
+
+    /**
+     * @param nodeParent the nodeParent to set
+     */
+    public void setNodeParent(NodeData nodeParent) {
+        this.nodeParent = nodeParent;
     }
  }

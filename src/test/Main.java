@@ -93,11 +93,11 @@ public class Main {
         List<List<String>> de = new ArrayList<>();
         List<List<String>> so1 = new ArrayList<>();
         
-        List<String> s1 = new ArrayList<>(Arrays.asList("*", "0", "*", "*"));
+        List<String> s1 = new ArrayList<>(Arrays.asList("*", "2", "*", "*"));
         List<String> s2 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s3 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
-        List<String> s4 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
-        List<String> s5 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        List<String> s4 = new ArrayList<>(Arrays.asList("4", "1", "3", "3"));
+        List<String> s5 = new ArrayList<>(Arrays.asList("4", "1", "2", "0"));
         
         so.add(s1);
         so.add(s2);
@@ -132,13 +132,13 @@ public class Main {
         //System.out.println(Heuristic.calcH(so, de, 1));
         System.out.println(Double.MAX_VALUE + 100); 
         
-        NodeData n = new NodeData(new BabMatrix(so), null, 1);
-        n.calcF(new BabMatrix(de));
-        System.out.println(n.getF()); 
-        
-        NodeData n2 = new NodeData(new BabMatrix(so1), null, 1);
-        n2.calcF(new BabMatrix(de));
-        System.out.println(n2.getF()); 
+//        NodeData n = new NodeData(new BabMatrix(so), null, 1);
+//        n.calcF(new BabMatrix(de));
+//        System.out.println(n.getF()); 
+//        
+//        NodeData n2 = new NodeData(new BabMatrix(so1), null, 1);
+//        n2.calcF(new BabMatrix(de));
+//        System.out.println(n2.getF()); 
         
 //        System.out.println("esta es la parte");
 //        new BabMatrix(so1).generateStates();
@@ -182,9 +182,11 @@ public class Main {
         //graph1.addEdge(bo, bo2,  0.25);
         //graph1.addEdge(bo2, bd,  0.25);
 
-        AStar aStar1 = new AStar(graph1);
+        AStar aStar1 = new AStar();
 
-        for (BabMatrix path : aStar1.astar(bo, bd)) {
+        List<BabMatrix> paths = aStar1.astar(bo, bd);
+        System.out.println(paths.size());
+        for (BabMatrix path : paths) {
             //System.out.println(path);
             path.print();
             System.out.println();
