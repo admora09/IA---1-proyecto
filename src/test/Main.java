@@ -93,7 +93,7 @@ public class Main {
         List<List<String>> de = new ArrayList<>();
         List<List<String>> so1 = new ArrayList<>();
         
-        List<String> s1 = new ArrayList<>(Arrays.asList("0", "*", "*", "*"));
+        List<String> s1 = new ArrayList<>(Arrays.asList("*", "0", "*", "*"));
         List<String> s2 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s3 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s4 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
@@ -105,8 +105,8 @@ public class Main {
         so.add(s4);
         so.add(s5);
         
-        List<String> s11 = new ArrayList<>(Arrays.asList("1", "*", "*", "*"));
-        List<String> s12 = new ArrayList<>(Arrays.asList("0", "2", "3", "4"));
+        List<String> s11 = new ArrayList<>(Arrays.asList("*", "0", "*", "*"));
+        List<String> s12 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s13 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s14 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s15 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
@@ -140,6 +140,11 @@ public class Main {
         n2.calcF(new BabMatrix(de));
         System.out.println(n2.getF()); 
         
+//        System.out.println("esta es la parte");
+//        new BabMatrix(so1).generateStates();
+//        new BabMatrix(de).getFreePosition();
+//        new BabMatrix(so).generateStates();
+        
         // test ***************************************************************
         BabMatrix bo = new BabMatrix(so);
         BabMatrix bo2 = new BabMatrix(so1);
@@ -168,14 +173,14 @@ public class Main {
         h2.put(bd, mapB1);
         h2.put(bo2, mapC1);
 
-        GraphAStar graph1 = new GraphAStar(h2);
+        GraphAStar graph1 = new GraphAStar(bd);
         graph1.addNode(bo);
         graph1.addNode(bd);
-        graph1.addNode(bo2);
+        //graph1.addNode(bo2);
 
         graph1.addEdge(bo, bd,  1.0);
-        graph1.addEdge(bo, bo2,  0.25);
-        graph1.addEdge(bo2, bd,  0.25);
+        //graph1.addEdge(bo, bo2,  0.25);
+        //graph1.addEdge(bo2, bd,  0.25);
 
         AStar aStar1 = new AStar(graph1);
 
@@ -184,5 +189,12 @@ public class Main {
             path.print();
             System.out.println();
         }
+        
+//        System.out.println("esta es la parte");
+//        List<BabMatrix> states = (new BabMatrix(so)).generateStates();
+//        for (BabMatrix path : states) {
+//            //System.out.println(path);
+//            path.print();
+//        }
     }
 }
