@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Files {
        return vReturn;
     }
     
-    public static void downloadFile(File pFile, ArrayList<String[][]> pMatrix)
+    public static void downloadFile(File pFile, List<List<List<String>>> pMatrix)
     {
         FileWriter vFileWriter = null;
         PrintWriter vPrintWriter = null;
@@ -47,9 +48,9 @@ public class Files {
             vPrintWriter = new PrintWriter(vFileWriter);
             for(int a = 0; a < pMatrix.size(); a++) {
                 vPrintWriter.println("Paso " + (a+1) +":"); 
-                for(int i = 0; i < pMatrix.get(a).length; i++) {
-                    for(int j = 0; j < pMatrix.get(a)[i].length; j++) {
-                        vPrintWriter.print(pMatrix.get(a)[i][j]); 
+                for(int i = 0; i < pMatrix.get(a).size(); i++) {
+                    for(int j = 0; j < pMatrix.get(a).get(i).size(); j++) {
+                        vPrintWriter.print(pMatrix.get(a).get(i).get(j)); 
                     }
                     vPrintWriter.println();
                 }

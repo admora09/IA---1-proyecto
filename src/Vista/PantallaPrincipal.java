@@ -51,17 +51,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     ImageIcon solucion = new ImageIcon("src/images/solution.png");
     ImageIcon download = new ImageIcon("src/images/download2.png");
     ImageIcon upload = new ImageIcon("src/images/upload2.png");
-
+    ImageIcon restartA = new ImageIcon("src/images/restartA.png");
+    ImageIcon restartB = new ImageIcon("src/images/restartB.png");
+    
     String[][] InMatriz = Matrix.createBabylonMatrix();
     String[][] OutMatriz = Matrix.createBabylonMatrix();
     
     
     //***************************************************************
-    String[][] SolutionMatriz = Matrix.createBabylonMatrix();
+    List<List<String>> SolutionMatriz = new  ArrayList<List<String>>();
     
-    ArrayList<String[][]> solucion_completa = new ArrayList<String[][]>();
+    List<List<List<String>>> solucion_completa = new  ArrayList<List<List<String>>>();
     
-    int posicion_solucion = 1;
+    int posicion_solucion = 0;
     //***************************************************************
     int spacePosition;
    
@@ -101,6 +103,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnDescargarA.setIcon(download);
         btnDescargarB.setIcon(download);
         btnDownload.setIcon(download);
+        btnRestartA.setIcon(restartA);
+        btnRestartB.setIcon(restartB);
+        
         
     }
     
@@ -255,6 +260,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnDescargarA = new javax.swing.JButton();
         btnCargarB = new javax.swing.JButton();
         btnDescargarB = new javax.swing.JButton();
+        btnRestartA = new javax.swing.JButton();
+        btnRestartB = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -984,12 +991,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnRestartA.setToolTipText("Reiniciar Configuracion");
+        btnRestartA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestartAActionPerformed(evt);
+            }
+        });
+
+        btnRestartB.setToolTipText("Reiniciar Configuracion");
+        btnRestartB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestartBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
+                .addContainerGap()
+                .addComponent(btnRestartA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
                 .addComponent(btnCargarA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(btnDescargarA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -999,19 +1022,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnCargarB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(btnDescargarB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143))
+                .addGap(87, 87, 87)
+                .addComponent(btnRestartB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCargarB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDescargarB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRestartB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnCargarA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnDescargarA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnGenerarSolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRestartA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCargarB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDescargarB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnCargarA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnDescargarA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnGenerarSolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1048,9 +1077,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCR1ActionPerformed
-        System.out.println("size: "+solucion_completa.size());
-        System.out.println("posicion: "+posicion_solucion);
-        posicion_solucion++;
+        
+       posicion_solucion++;
+        //posicion_solucion++;
         if(posicion_solucion<solucion_completa.size())
         {
 
@@ -1062,11 +1091,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         {
             posicion_solucion--;
         }
-
+        System.out.println("size: "+solucion_completa.size());
+        System.out.println("posicion: "+posicion_solucion);
+        
     }//GEN-LAST:event_btnCR1ActionPerformed
 
     private void btnCL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCL1ActionPerformed
-        System.out.println("posicion: "+posicion_solucion);
+       System.out.println("posicion antes: "+posicion_solucion);
         posicion_solucion--;
         if(posicion_solucion>=0)
         {
@@ -1079,6 +1110,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         {
             posicion_solucion++;
         }
+         System.out.println("posicion despues: "+posicion_solucion);
 
     }//GEN-LAST:event_btnCL1ActionPerformed
 
@@ -1218,7 +1250,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         AStar aStar1 = new AStar();
         List <BabMatrix> paths = aStar1.astar(bo,bd);
        
-        solucion_completa = Matrix.getArray(paths);
+       // solucion_completa = Matrix.getArray(paths);
+       
+        for (int i = 0; i < paths.size(); i++) {
+            solucion_completa.add(paths.get(i).getMatrix());
+        }
+        SolutionMatriz=solucion_completa.get(0);
 
         refreshMatrixSolution();
     }//GEN-LAST:event_btnGenerarSolucionActionPerformed
@@ -1369,6 +1406,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void btnRestartAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartAActionPerformed
+        InMatriz = Matrix.createBabylonMatrix();
+        refreshMatrix();
+    }//GEN-LAST:event_btnRestartAActionPerformed
+
+    private void btnRestartBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartBActionPerformed
+        OutMatriz = Matrix.createBabylonMatrix();
+        refreshMatrixB();
+    }//GEN-LAST:event_btnRestartBActionPerformed
 
    
    
@@ -2944,7 +2991,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     public void refreshMatrixSolution(int pPos,int pDireccion)
     {
-        spacePosition = findSpace(SolutionMatriz);
+        //spacePosition = findSpace(SolutionMatriz);
         if(pDireccion==1)
         {   
             //For: check the row according position
@@ -2954,7 +3001,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 switch(i)
                 {
                     case 0:
-                        switch(SolutionMatriz[pPos][0])
+                        switch(SolutionMatriz.get(pPos).get(0))
                         {
                             case "0":
                                 selectImgColumn1Solution(pPos, no_pared_solucion);
@@ -2979,7 +3026,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 1:
-                            switch(SolutionMatriz[pPos][1])
+                            switch(SolutionMatriz.get(pPos).get(1))
                             {
                                 case "0":
                                     selectImgColumn2Solution(pPos, no_pared_solucion);
@@ -3005,7 +3052,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 2:
-                            switch(SolutionMatriz[pPos][2])
+                            switch(SolutionMatriz.get(pPos).get(2))
                             {
                                  case "0":
                                     selectImgColumn3Solution(pPos, no_pared_solucion);
@@ -3031,7 +3078,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 3:
-                            switch(SolutionMatriz[pPos][3])
+                            switch(SolutionMatriz.get(pPos).get(3))
                             {
                                  case "0":
                                     selectImgColumn4Solution(pPos, no_pared_solucion);
@@ -3067,7 +3114,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 switch(i)
                 {
                     case 0:
-                        switch(SolutionMatriz[0][pPos])
+                        switch(SolutionMatriz.get(0).get(pPos))
                         {
                             case "0":
                                 selectImgRow1Solution(pPos, no_pared_solucion);
@@ -3093,7 +3140,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                         case 1:
                                                 
-                                switch(SolutionMatriz[1][pPos])
+                                switch(SolutionMatriz.get(1).get(pPos))
                                 {
                                     case "0":
                                         selectImgRow2Solution(pPos, no_pared_solucion);
@@ -3118,7 +3165,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 2:
-                            switch(SolutionMatriz[2][pPos])
+                            switch(SolutionMatriz.get(2).get(pPos))
                             {
                                  case "0":
                                     selectImgRow3Solution(pPos, no_pared_solucion);
@@ -3143,7 +3190,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         break;
 
                         case 3:
-                            switch(SolutionMatriz[3][pPos])
+                            switch(SolutionMatriz.get(3).get(pPos))
                             {
                                  case "0":
                                     selectImgRow4Solution(pPos, no_pared_solucion);
@@ -3166,7 +3213,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     break;
                             }       
                         case 4:
-                            switch(SolutionMatriz[4][pPos])
+                            switch(SolutionMatriz.get(4).get(pPos))
                             {
                                  case "0":
                                     selectImgRow5Solution(pPos, no_pared_solucion);
@@ -3668,11 +3715,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnCL1.setIcon(flecha_derecha_solucion);
         btnCR1.setIcon(flecha_izquierda_solucion);
         
+        
         refreshMatrixSolution(0, 1);
         refreshMatrixSolution(1, 1);
         refreshMatrixSolution(2, 1);
         refreshMatrixSolution(3, 1);
         refreshMatrixSolution(4, 1);
+        
     }
     /**
      * @param args the command line arguments
@@ -3757,6 +3806,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnDescargarB;
     private javax.swing.JButton btnDownload;
     private javax.swing.JButton btnGenerarSolucion;
+    private javax.swing.JButton btnRestartA;
+    private javax.swing.JButton btnRestartB;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFileChooser jFileChooser2;
     private javax.swing.JLabel jLabel1;

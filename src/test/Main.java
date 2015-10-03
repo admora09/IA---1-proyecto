@@ -93,11 +93,11 @@ public class Main {
         List<List<String>> de = new ArrayList<>();
         List<List<String>> so1 = new ArrayList<>();
         
-        List<String> s1 = new ArrayList<>(Arrays.asList("*", "2", "*", "*"));
-        List<String> s2 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
-        List<String> s3 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
-        List<String> s4 = new ArrayList<>(Arrays.asList("4", "1", "3", "3"));
-        List<String> s5 = new ArrayList<>(Arrays.asList("4", "1", "2", "0"));
+        List<String> s1 = new ArrayList<>(Arrays.asList("*", "*", "*", "1"));
+        List<String> s2 = new ArrayList<>(Arrays.asList("4", "3", "3", "3"));
+        List<String> s3 = new ArrayList<>(Arrays.asList("2", "4", "2", "0"));
+        List<String> s4 = new ArrayList<>(Arrays.asList("4", "1", "2", "2"));
+        List<String> s5 = new ArrayList<>(Arrays.asList("3", "4", "1", "1"));
         
         so.add(s1);
         so.add(s2);
@@ -105,7 +105,7 @@ public class Main {
         so.add(s4);
         so.add(s5);
         
-        List<String> s11 = new ArrayList<>(Arrays.asList("*", "0", "*", "*"));
+        /*List<String> s11 = new ArrayList<>(Arrays.asList("*", "0", "*", "*"));
         List<String> s12 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s13 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s14 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
@@ -115,7 +115,7 @@ public class Main {
         so1.add(s12);
         so1.add(s13);
         so1.add(s14);
-        so1.add(s15);
+        so1.add(s15);*/
         
         List<String> r1 = new ArrayList<>(Arrays.asList("*", "*", "*", "0"));
         List<String> r2 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));

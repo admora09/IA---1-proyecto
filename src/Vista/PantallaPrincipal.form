@@ -923,7 +923,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="620" max="32767" attributes="0"/>
+                      <EmptySpace pref="623" max="32767" attributes="0"/>
                       <Component id="btnDownload" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   </Group>
@@ -987,7 +987,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnRestartA" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   <Component id="btnCargarA" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="btnDescargarA" min="-2" pref="35" max="-2" attributes="0"/>
@@ -997,7 +999,9 @@
                   <Component id="btnCargarB" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="btnDescargarB" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                  <Component id="btnRestartB" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1006,13 +1010,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnCargarB" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="btnDescargarB" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnRestartB" min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnCargarA" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="btnDescargarA" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnRestartA" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btnCargarB" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnDescargarB" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnCargarA" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="btnDescargarA" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnGenerarSolucion" min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="btnGenerarSolucion" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1058,6 +1068,22 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDescargarBActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRestartA">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Reiniciar Configuracion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRestartAActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRestartB">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Reiniciar Configuracion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRestartBActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

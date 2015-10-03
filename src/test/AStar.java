@@ -78,7 +78,7 @@ public class AStar {
                     path.put(neighbor.getNodeId(), nodeData.getNodeId());
                     //if (!openQueue.contains(neighbor)) {
                         openQueue.add(neighbor);
-                        neighbor.getNodeId().print();
+                       // neighbor.getNodeId().print();
                     //}
                 }
             }

@@ -76,9 +76,13 @@ public class Matrix {
     
     public static List<List<String>> getList(String mat[][])
     {
+        
         List<List<String>> list = new ArrayList<>();
         for(int i = 0; i < mat.length; i++) {
-            list.add(Arrays.asList(mat[i]));
+            //list.add(Arrays.asList(mat[i]));
+            //List<String> r1 = new ArrayList<>(Arrays.asList("*", "*", "*", "0"));
+            List<String> r1 = new ArrayList<>(Arrays.asList(mat[i]));
+            list.add(r1);
         }
         
         return list;
@@ -91,11 +95,14 @@ public class Matrix {
         String[][] tempMat = createBabylonMatrix();
         
         for(int i = 0; i < list.size(); i++){
-            a = list.get(i).getMatrix();
-            for(int j = 0; j < a.size(); j++) {
-                List<String> p = a.get(j);
-                tempMat[i][j] = p.get(j);
+           a = list.get(i).getMatrix();
+           for(int j = 0; j < a.size(); j++) {
+               System.out.println("ex: i: "+i+" j: "+j +":"+ a.get(j)); 
+               List<String> p = a.get(j);
+                
+                //tempMat[i][j] = p.get(j);
             }
+            System.out.println("-------------");
             mat.add(tempMat);
         }
         return mat;
