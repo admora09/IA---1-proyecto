@@ -8,6 +8,10 @@ package Utilities;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import test.BabMatrix;
 
 /**
  * This class represents a Matrix
@@ -68,6 +72,33 @@ public class Matrix {
             }
             System.out.println( );
         }
+    }
+    
+    public static List<List<String>> getList(String mat[][])
+    {
+        List<List<String>> list = new ArrayList<>();
+        for(int i = 0; i < mat.length; i++) {
+            list.add(Arrays.asList(mat[i]));
+        }
+        
+        return list;
+    }
+    
+    public static ArrayList<String[][]> getArray(List <BabMatrix> list)
+    {
+        ArrayList<String[][]> mat = new ArrayList<String[][]>(); 
+        List<List<String>> a = new ArrayList<List<String>>();
+        String[][] tempMat = createBabylonMatrix();
+        
+        for(int i = 0; i < list.size(); i++){
+            a = list.get(i).getMatrix();
+            for(int j = 0; j < a.size(); j++) {
+                List<String> p = a.get(j);
+                tempMat[i][j] = p.get(j);
+            }
+            mat.add(tempMat);
+        }
+        return mat;
     }
 
     /**

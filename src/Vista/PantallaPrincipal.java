@@ -10,21 +10,17 @@ import static Utilities.Files.readFile;
 import Utilities.Matrix;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.AbstractAction;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import test.AStar;
+import test.BabMatrix;
 
 /**
  *
@@ -1204,15 +1200,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCargarBActionPerformed
 
     private void btnGenerarSolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarSolucionActionPerformed
-        String[][] matriz1 = SolutionMatriz;
+        /*String[][] matriz1 = SolutionMatriz;
         String[][] matriz2 = {{"*","*","1","*"},{"1","3","0","4"},{"1","2","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
         String[][] matriz3 = {{"*","*","1","*"},{"1","2","3","4"},{"1","0","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
         String[][] matriz4 = {{"*","*","3","*"},{"1","0","1","4"},{"1","2","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
-
         solucion_completa.add(matriz1);
         solucion_completa.add(matriz2);
         solucion_completa.add(matriz3);
-        solucion_completa.add(matriz4);
+        solucion_completa.add(matriz4); */
+
+        List<List<String>> so =  Matrix.getList(InMatriz);
+        List<List<String>> de = Matrix.getList(OutMatriz);
+        
+        BabMatrix bo = new BabMatrix(so);
+        BabMatrix bd = new BabMatrix(de);
+                
+        AStar aStar1 = new AStar();
+        List <BabMatrix> paths = aStar1.astar(bo,bd);
+       
+        solucion_completa = Matrix.getArray(paths);
 
         refreshMatrixSolution();
     }//GEN-LAST:event_btnGenerarSolucionActionPerformed
