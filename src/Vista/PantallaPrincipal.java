@@ -1077,41 +1077,32 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCR1ActionPerformed
-        
+
        posicion_solucion++;
         //posicion_solucion++;
         if(posicion_solucion<solucion_completa.size())
         {
-
             SolutionMatriz = solucion_completa.get(posicion_solucion);
             refreshMatrixSolution();
-
         }
         else
         {
             posicion_solucion--;
-        }
-        System.out.println("size: "+solucion_completa.size());
-        System.out.println("posicion: "+posicion_solucion);
-        
+        }        
     }//GEN-LAST:event_btnCR1ActionPerformed
 
     private void btnCL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCL1ActionPerformed
-       System.out.println("posicion antes: "+posicion_solucion);
+       
         posicion_solucion--;
         if(posicion_solucion>=0)
         {
-
             SolutionMatriz = solucion_completa.get(posicion_solucion);
             refreshMatrixSolution();
-
         }
         else
         {
             posicion_solucion++;
-        }
-         System.out.println("posicion despues: "+posicion_solucion);
-
+        }     
     }//GEN-LAST:event_btnCL1ActionPerformed
 
     private void btnDescargarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarBActionPerformed
@@ -1125,94 +1116,94 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btnBD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBD4ActionPerformed
         moverAbajo(3,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBD4ActionPerformed
 
     private void btnBD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBD3ActionPerformed
         moverAbajo(2,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBD3ActionPerformed
 
     private void btnBD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBD2ActionPerformed
         moverAbajo(1,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBD2ActionPerformed
 
     private void btnBD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBD1ActionPerformed
         moverAbajo(0,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBD1ActionPerformed
 
     private void btnBU4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBU4ActionPerformed
         moverArriba(3,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBU4ActionPerformed
 
     private void btnBU3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBU3ActionPerformed
         moverArriba(2,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBU3ActionPerformed
 
     private void btnBU2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBU2ActionPerformed
         moverArriba(1,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBU2ActionPerformed
 
     private void btnBU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBU1ActionPerformed
         // TODO add your handling code here:
         moverArriba(0,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBU1ActionPerformed
 
     private void btnBR5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBR5ActionPerformed
         moverDerecha(4,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBR5ActionPerformed
 
     private void btnBR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBR4ActionPerformed
         moverDerecha(3,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBR4ActionPerformed
 
     private void btnBR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBR3ActionPerformed
         moverDerecha(2,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBR3ActionPerformed
 
     private void btnBR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBR2ActionPerformed
         moverDerecha(1,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBR2ActionPerformed
 
     private void btnBR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBR1ActionPerformed
         moverDerecha(0,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBR1ActionPerformed
 
     private void btnBL5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBL5ActionPerformed
         moverIzquierda(4,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBL5ActionPerformed
 
     private void btnBL4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBL4ActionPerformed
         moverIzquierda(3,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBL4ActionPerformed
 
     private void btnBL3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBL3ActionPerformed
         moverIzquierda(2,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBL3ActionPerformed
 
     private void btnBL2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBL2ActionPerformed
         moverIzquierda(1,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBL2ActionPerformed
 
     private void btnBL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBL1ActionPerformed
         // TODO add your handling code here:
         moverIzquierda(0,OutMatriz,2);
-        imprimir_resultadoB();
+        
     }//GEN-LAST:event_btnBL1ActionPerformed
 
     private void btnCargarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarBActionPerformed
@@ -1232,15 +1223,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCargarBActionPerformed
 
     private void btnGenerarSolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarSolucionActionPerformed
-        /*String[][] matriz1 = SolutionMatriz;
-        String[][] matriz2 = {{"*","*","1","*"},{"1","3","0","4"},{"1","2","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
-        String[][] matriz3 = {{"*","*","1","*"},{"1","2","3","4"},{"1","0","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
-        String[][] matriz4 = {{"*","*","3","*"},{"1","0","1","4"},{"1","2","3","4"},{"1","2","3","4"},{"1","2","3","4"}};
-        solucion_completa.add(matriz1);
-        solucion_completa.add(matriz2);
-        solucion_completa.add(matriz3);
-        solucion_completa.add(matriz4); */
-
         List<List<String>> so =  Matrix.getList(InMatriz);
         List<List<String>> de = Matrix.getList(OutMatriz);
         
@@ -1248,10 +1230,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         BabMatrix bd = new BabMatrix(de);
                 
         AStar aStar1 = new AStar();
+        
+        System.out.println("Pensando en solución...");
         List <BabMatrix> paths = aStar1.astar(bo,bd);
        
        // solucion_completa = Matrix.getArray(paths);
-       
         for (int i = 0; i < paths.size(); i++) {
             solucion_completa.add(paths.get(i).getMatrix());
         }
@@ -1280,108 +1263,107 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     private void btnAD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD4ActionPerformed
         moverAbajo(3,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAD4ActionPerformed
 
     private void btnAD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD3ActionPerformed
         // TODO add your handling code here:
         moverAbajo(2,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAD3ActionPerformed
 
     private void btnAD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD2ActionPerformed
         // TODO add your handling code here:
         moverAbajo(1,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAD2ActionPerformed
 
     private void btnAD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAD1ActionPerformed
         // TODO add your handling code here:
         moverAbajo(0,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAD1ActionPerformed
 
     private void btnAU4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU4ActionPerformed
         // TODO add your handling code here:
         moverArriba(3,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAU4ActionPerformed
 
     private void btnAU3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU3ActionPerformed
         // TODO add your handling code here:
         moverArriba(2,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAU3ActionPerformed
 
     private void btnAU2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU2ActionPerformed
         // TODO add your handling code here:
         moverArriba(1,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAU2ActionPerformed
 
     private void btnAU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAU1ActionPerformed
         // TODO add your handling code here:
         moverArriba(0,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAU1ActionPerformed
 
     private void btnAR5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR5ActionPerformed
         // TODO add your handling code here:
         moverDerecha(4,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAR5ActionPerformed
 
     private void btnAR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR4ActionPerformed
         // TODO add your handling code here:
         moverDerecha(3,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAR4ActionPerformed
 
     private void btnAR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR3ActionPerformed
         // TODO add your handling code here:
         moverDerecha(2,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAR3ActionPerformed
 
     private void btnAR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR2ActionPerformed
         // TODO add your handling code here:
         moverDerecha(1,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAR2ActionPerformed
 
     private void btnAR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAR1ActionPerformed
         // TODO add your handling code here:
         moverDerecha(0,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAR1ActionPerformed
 
     private void btnAL5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL5ActionPerformed
         moverIzquierda(4,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAL5ActionPerformed
 
     private void btnAL4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL4ActionPerformed
         // TODO add your handling code here:
         moverIzquierda(3,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAL4ActionPerformed
 
     private void btnAL3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL3ActionPerformed
         // TODO add your handling code here:
         moverIzquierda(2,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAL3ActionPerformed
 
     private void btnAL2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL2ActionPerformed
         // TODO add your handling code here:
         moverIzquierda(1,InMatriz,1);
-        imprimir_resultadoA();
+        
     }//GEN-LAST:event_btnAL2ActionPerformed
 
     private void btnAL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAL1ActionPerformed
         // TODO add your handling code here:
         moverIzquierda(0,InMatriz,1);
-        imprimir_resultadoA();
     }//GEN-LAST:event_btnAL1ActionPerformed
 
     private void btnCargarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarAActionPerformed
@@ -1417,9 +1399,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         refreshMatrixB();
     }//GEN-LAST:event_btnRestartBActionPerformed
 
-   
-   
-    
     public void imprimir_resultadoA()
     {
         for (int i = 0; i < 5; i++) {
