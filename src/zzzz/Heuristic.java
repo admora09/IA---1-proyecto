@@ -1,7 +1,9 @@
-package test;
+package zzzz;
 
+import test.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class Heuristic {
     
@@ -22,21 +24,14 @@ public class Heuristic {
         
         while(!lista.isEmpty()){
             point temp = lista.remove(0);
-            point possible = null;
-            int tempCost = Integer.MAX_VALUE; 
-            int possibleCost = 0;
             if(!temp.value.equals(destination.get(temp.i, temp.j))){
                 for(int i=0; i<lista.size(); i++ ){
                     if(lista.get(i).value.equals(destination.get(temp.i, temp.j))){
-                        possibleCost = getManhattan(temp.i, temp.j, lista.get(i).i, lista.get(i).j);
-                        if(possibleCost < tempCost){
-                            tempCost = possibleCost;
-                            possible = lista.get(i);
-                        }
+                        swap(temp, lista.get(i));
+                        cont += getManhattan(temp.i, temp.j, lista.get(i).i, lista.get(i).j);// (Math.abs(temp.i - lista.get(i).i) + Math.abs(temp.j - lista.get(i).j));
+                        break;
                     }
                 }
-                swap(temp, possible);
-                cont += tempCost;
             }
         }
         

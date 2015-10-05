@@ -3,7 +3,6 @@ package test;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +24,14 @@ public class AStar {
             return 0;
         }
     } 
+    
+    private void printQueue(NodeData[] list){
+        System.out.println("-----------");
+        for(int i=0; i<list.length; i++){
+            System.out.println("F(): " + list[i].getF());
+        }
+        System.out.println("-----------");
+    }
 
     /**
      * Implements the A-star algorithm and returns the path from source to destination
@@ -44,47 +51,86 @@ public class AStar {
         sourceNodeData.calcF(destination);
         openQueue.add(sourceNodeData);
 
-        final Map<BabMatrix, BabMatrix> path = new HashMap<>();
-        final Set<NodeData> closedList = new HashSet<>();
+        //final Map<BabMatrix, BabMatrix> path = new HashMap<>();
+        final Set<BabMatrix> closedList = new HashSet<>();
 
         while (!openQueue.isEmpty()) {
+//            printQueue(openQueue.toArray(new NodeData[openQueue.size()]));
+//            System.out.println("closed: " + closedList.size());
+//            System.out.println("opened: " + openQueue.size() + "\nactual F(): " + openQueue.peek().getF());
+            
             final NodeData nodeData = openQueue.poll();
-
+            
+//            nodeData.getNodeId().print();
+            
             if (compare(nodeData.getNodeId(), (destination))) { 
                 return path(nodeData);
             }
 
-            closedList.add(nodeData);
+            closedList.add(nodeData.getNodeId());
             //nodeData.getNodeId().print();
 
-            for (BabMatrix neighborEntry : nodeData.getNodeId().generateStates()){//graph.edgesFrom(nodeData.getNodeId()).entrySet()) {
-                Heuristic h = new Heuristic();
-                double distance = nodeData.getG() + 1;// + h.calcH(neighborEntry, nodeData.getNodeId());
-                NodeData neighbor = new NodeData(neighborEntry, nodeData, distance);//neighborEntry.getKey();
-                //neighbor.getNodeId().print();
-
-                if (closedList.contains(neighbor)) continue;
-
-                double distanceBetweenTwoNodes = h.calcH(neighborEntry, nodeData.getNodeId());
-                double tentativeG = distanceBetweenTwoNodes + nodeData.getG();
-               
-                //System.out.println(nodeData.getG());
-                //System.out.println(tentativeG + " < " + neighbor.getG());
+            for (BabMatrix neighborEntry : nodeData.generateStates()){//graph.edgesFrom(nodeData.getNodeId()).entrySet()) {
+                List<BabMatrix> clList = new ArrayList<>(closedList);
+                if (contains(clList, neighborEntry)) continue;
                 
-                if (tentativeG < neighbor.getG()) {
+                double tentativeG = nodeData.getG() + (1.0/20);
+                boolean gScoreIsBest = false;
+                
+                NodeData neighbor = find(openQueue.toArray(new NodeData[openQueue.size()]), neighborEntry);
+                
+                if(neighbor == null){
+                    gScoreIsBest = true;
+                    neighbor = new NodeData(neighborEntry);
+                    
+                }
+                else if(tentativeG < neighbor.getG()) {
+//                    System.out.println(tentativeG + " < " + neighbor.getG());
+                    gScoreIsBest = true;
+                }
+                
+//                neighbor.getNodeId().print();
+                
+                if(gScoreIsBest) {
+                    neighbor.setNodeParent(nodeData);
                     neighbor.setG(tentativeG);
                     neighbor.calcF(destination);
-
-                    path.put(neighbor.getNodeId(), nodeData.getNodeId());
-                    //if (!openQueue.contains(neighbor)) {
-                        openQueue.add(neighbor);
-                       // neighbor.getNodeId().print();
-                    //}
+                    openQueue.add(neighbor);
+//                    System.out.println("added");
+                    
+                    Heuristic heuristic = new Heuristic();
+//                    System.out.println("H(): " + heuristic.calcH(neighborEntry, destination));
+//                    System.out.println("G(): " + neighbor.getG());
+//                    System.out.println("F(): " + neighbor.getF());
                 }
+                
+                
+                
+                //neighbor.getNodeId().print();
+                //if (closedList.contains(neighbor.getNodeId())) continue;
+
+                
+               
+                //System.out.println(nodeData.getG());
+//                System.out.println(tentativeG + " < " + neighbor.getG());
+//                neighbor.getNodeId().print();
+                
+//                if (tentativeG < neighbor.getG()) {
+//                    neighbor.setG(tentativeG);
+//                    neighbor.calcF(destination);
+//
+//                    //path.put(neighbor.getNodeId(), nodeData.getNodeId());
+//                    List<BabMatrix> opList = getMatrixList(openQueue.toArray(new NodeData[openQueue.size()]));
+//                    //if (!openQueue.contains(neighbor)) {
+//                    if (!contains(opList, neighborEntry)) {
+//                        openQueue.add(neighbor);
+//                       // neighbor.getNodeId().print();
+//                    }
+//                }
             }
         }
 
-        return null;
+        return new ArrayList<>();
     }
     
     private boolean compare(BabMatrix source, BabMatrix destination){
@@ -98,6 +144,33 @@ public class AStar {
         return true;
     }
 
+    private boolean contains(List<BabMatrix> matrixs, BabMatrix matrix){
+        for(int i=0; i<matrixs.size(); i++){
+            if(compare(matrix, matrixs.get(i))){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    private NodeData find(NodeData[] openList, BabMatrix matrix){
+        for(int i=0; i<openList.length; i++){
+            if(compare(matrix, openList[i].getNodeId())){
+                return openList[i];
+            }
+        }
+        return null;
+    }
+    
+    private List<BabMatrix> getMatrixList(NodeData[] list){
+        List<BabMatrix> result = new ArrayList<>();
+        
+        for(int i=0; i<list.length; i++){
+            result.add(list[i].getNodeId());
+        }
+        return result;
+    }
 
     private List<BabMatrix> path(Map<BabMatrix, BabMatrix> path, BabMatrix destination) {
         assert path != null;

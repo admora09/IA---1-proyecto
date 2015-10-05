@@ -93,11 +93,11 @@ public class Main {
         List<List<String>> de = new ArrayList<>();
         List<List<String>> so1 = new ArrayList<>();
         
-        List<String> s1 = new ArrayList<>(Arrays.asList("*", "*", "*", "1"));
-        List<String> s2 = new ArrayList<>(Arrays.asList("4", "3", "3", "3"));
-        List<String> s3 = new ArrayList<>(Arrays.asList("2", "4", "2", "0"));
-        List<String> s4 = new ArrayList<>(Arrays.asList("4", "1", "2", "2"));
-        List<String> s5 = new ArrayList<>(Arrays.asList("3", "4", "1", "1"));
+        List<String> s1 = new ArrayList<>(Arrays.asList("*", "*", "*", "0"));
+        List<String> s2 = new ArrayList<>(Arrays.asList("1", "1", "1", "1"));
+        List<String> s3 = new ArrayList<>(Arrays.asList("2", "2", "2", "2"));
+        List<String> s4 = new ArrayList<>(Arrays.asList("3", "3", "3", "3"));
+        List<String> s5 = new ArrayList<>(Arrays.asList("4", "4", "4", "4"));
         
         so.add(s1);
         so.add(s2);
@@ -105,17 +105,17 @@ public class Main {
         so.add(s4);
         so.add(s5);
         
-        /*List<String> s11 = new ArrayList<>(Arrays.asList("*", "0", "*", "*"));
+        List<String> s11 = new ArrayList<>(Arrays.asList("*", "2", "*", "*"));
         List<String> s12 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         List<String> s13 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
-        List<String> s14 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
-        List<String> s15 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        List<String> s14 = new ArrayList<>(Arrays.asList("3", "4", "1", "4"));
+        List<String> s15 = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
         
         so1.add(s11);
         so1.add(s12);
         so1.add(s13);
         so1.add(s14);
-        so1.add(s15);*/
+        so1.add(s15);
         
         List<String> r1 = new ArrayList<>(Arrays.asList("*", "*", "*", "0"));
         List<String> r2 = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
@@ -130,7 +130,7 @@ public class Main {
         de.add(r5);
         
         //System.out.println(Heuristic.calcH(so, de, 1));
-        System.out.println(Double.MAX_VALUE + 100); 
+        System.out.println(1.0/19); 
         
 //        NodeData n = new NodeData(new BabMatrix(so), null, 1);
 //        n.calcF(new BabMatrix(de));
@@ -150,38 +150,38 @@ public class Main {
         BabMatrix bo2 = new BabMatrix(so1);
         BabMatrix bd = new BabMatrix(de);
         
-        Map<BabMatrix, Map<BabMatrix, Double>> h2 = new HashMap<>();
-        // map for b0    
-        Map<BabMatrix, Double> mapA1 = new HashMap<>();
-        mapA1.put(bo,   0.0);
-        mapA1.put(bo2,  0.25);
-        mapA1.put(bd,   1.0);
-
-        // map for bd
-        Map<BabMatrix, Double> mapB1 = new HashMap<>();
-        mapB1.put(bo,   1.0);
-        mapB1.put(bo2,  0.25);
-        mapB1.put(bd,   0.0);
-        
-        // map for Bo2
-        Map<BabMatrix, Double> mapC1 = new HashMap<>();
-        mapC1.put(bo,  0.25);
-        mapC1.put(bo2, 0.0);
-        mapC1.put(bd,  0.25);
-        
-        h2.put(bo, mapA1);
-        h2.put(bd, mapB1);
-        h2.put(bo2, mapC1);
-
-        GraphAStar graph1 = new GraphAStar(bd);
-        graph1.addNode(bo);
-        graph1.addNode(bd);
-        //graph1.addNode(bo2);
-
-        graph1.addEdge(bo, bd,  1.0);
-        //graph1.addEdge(bo, bo2,  0.25);
-        //graph1.addEdge(bo2, bd,  0.25);
-
+//        Map<BabMatrix, Map<BabMatrix, Double>> h2 = new HashMap<>();
+//        // map for b0    
+//        Map<BabMatrix, Double> mapA1 = new HashMap<>();
+//        mapA1.put(bo,   0.0);
+//        mapA1.put(bo2,  0.25);
+//        mapA1.put(bd,   1.0);
+//
+//        // map for bd
+//        Map<BabMatrix, Double> mapB1 = new HashMap<>();
+//        mapB1.put(bo,   1.0);
+//        mapB1.put(bo2,  0.25);
+//        mapB1.put(bd,   0.0);
+//        
+//        // map for Bo2
+//        Map<BabMatrix, Double> mapC1 = new HashMap<>();
+//        mapC1.put(bo,  0.25);
+//        mapC1.put(bo2, 0.0);
+//        mapC1.put(bd,  0.25);
+//        
+//        h2.put(bo, mapA1);
+//        h2.put(bd, mapB1);
+//        h2.put(bo2, mapC1);
+//
+//        GraphAStar graph1 = new GraphAStar(bd);
+//        graph1.addNode(bo);
+//        graph1.addNode(bd);
+//        //graph1.addNode(bo2);
+//
+//        graph1.addEdge(bo, bd,  1.0);
+//        //graph1.addEdge(bo, bo2,  0.25);
+//        //graph1.addEdge(bo2, bd,  0.25);
+//
         AStar aStar1 = new AStar();
 
         List<BabMatrix> paths = aStar1.astar(bo, bd);
