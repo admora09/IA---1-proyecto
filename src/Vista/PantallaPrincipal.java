@@ -1231,10 +1231,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 
         AStar aStar1 = new AStar();
         
+        solucion_completa.clear();
+        posicion_solucion = 0;
         System.out.println("Pensando en solución...");
         List <BabMatrix> paths = aStar1.astar(bo,bd);
        
        // solucion_completa = Matrix.getArray(paths);
+        
         for (int i = 0; i < paths.size(); i++) {
             solucion_completa.add(paths.get(i).getMatrix());
         }
